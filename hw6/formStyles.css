@@ -1,0 +1,109 @@
+/* #historyMargin {
+  margin: 5px 5px;
+}
+
+.historyHoverText:hover {
+  color: #AA6C39;
+}
+
+#extra {
+  display: none;
+}
+
+p:hover #extra {
+  display: inline-block;
+}
+
+details {
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+  background-color: yellow;
+  margin-bottom: 10px;
+} */
+
+/* #newMessage {
+  background-color: lightcoral;
+} */
+
+/* summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+  size: 3vmax;
+} */
+
+button,
+input[type=submit],
+input[type=text],
+input[type=password],
+input[type=date],
+intput[type=checkbox],
+select {
+  padding: 6px;
+  margin-top: 6px;
+}
+
+#tableTitle {
+  text-align: center;
+  font-size: 0.9em;
+  background-color: #6d6400;
+  color: #ffffff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  width:95%;
+  box-shadow: 0 0 20px rgba(255, 240, 190, 0.915);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+table thead tr {
+  background-color: #6d6400;
+  color: #ffffff;
+  text-align: left;
+}
+
+#delete {
+  text-align: right;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #aaaaaa;
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+  border-bottom: 2px solid #6d6400;
+}
+
+table tbody tr.active-row {
+  font-weight: bold;
+  color: #6d6400;
+}

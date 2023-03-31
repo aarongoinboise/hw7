@@ -1,0 +1,115 @@
+1680190433 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680190905 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680190948 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680190954 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680190954 - DEBUG --> made it to the method rTS 
+1680190954 - DEBUG --> render method before for loop 
+1680190954 - DEBUG --> made it to the method rTS 
+1680190954 - DEBUG --> render method before for loop 
+1680190957 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680190957 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680190957 - DEBUG --> made it to the method rTS 
+1680190957 - DEBUG --> render method before for loop 
+1680190957 - DEBUG --> made it to the method rTS 
+1680190957 - DEBUG --> render method before for loop 
+1680190990 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680190990 - DEBUG --> made it to the method rTS 
+1680190990 - DEBUG --> render method before for loop 
+1680190990 - DEBUG --> made it to the method rTS 
+1680190990 - DEBUG --> render method before for loop 
+1680191027 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680191983 - WARN  --> Attempt to access home w/out login 
+1680192138 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680192246 - WARN  --> Attempt to access home w/out login 
+1680192261 - WARN  --> Attempt to access home w/out login 
+1680192267 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680192290 - WARN  --> Attempt to access home w/out login 
+1680192290 - WARN  --> Attempt to access edit w/out login 
+1680192436 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680192805 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680192818 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680192831 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680205252 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680205254 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680205278 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680205285 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680206628 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680206636 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680206645 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680206646 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214100 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214108 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214117 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214133 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214389 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214409 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214505 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214507 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214508 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214517 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214654 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214664 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214826 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214873 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214875 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214884 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214887 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680214998 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680215024 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680216461 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680216493 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680216560 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217219 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217249 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217302 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217310 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217426 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217437 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217541 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217555 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217619 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217682 - DEBUG --> (getTutorNumber) email: tutor1@gmail.com and return val: 1 
+1680217894 - DEBUG --> SESSION['select'] before redirect: session 
+1680266199 - DEBUG --> mHandler made it to date part 
+1680266207 - DEBUG --> mHandler made it to date part 
+1680266236 - DEBUG --> mHandler beginning 
+1680266236 - DEBUG --> mHandler made it to date part 
+1680266274 - DEBUG --> mHandler beginning 
+1680266274 - DEBUG --> mHandler beginning 
+1680266274 - DEBUG --> mHandler made it to date part 
+1680266352 - DEBUG --> was able to save date 
+1680266450 - DEBUG --> was able to save date 2023-03-31 
+1680266753 - DEBUG --> s_id:1 saved in saveMessage Dao 
+1680268790 - DEBUG --> s_id:1 got connection in saveMessage Dao 
+1680269022 - DEBUG --> saveMessage Dao 1st message:INSERT INTO messages
+            (m_date, m_description, studentSentMessage)
+            VALUES
+            (:m_date, :m_description, :studentSent 
+1680269167 - DEBUG --> dao saveMessage first execute 
+1680269249 - DEBUG --> dao saveMessage m_id: 2 
+1680269453 - DEBUG --> was able to save message for date 2023-03-31 
+1680271471 - DEBUG --> (message) before table top 
+1680271559 - DEBUG --> (message) before table top:    
+1680271580 - DEBUG --> (message) before table top:    
+1680271705 - DEBUG --> (message) before table top: messages length {count()}    
+1680272010 - DEBUG --> (message) before dao get messages 
+1680272058 - DEBUG --> (message) before dao get messages 
+1680272188 - DEBUG --> (message) before dao get messages 
+1680272205 - DEBUG --> (message) before dao get messages 
+1680272258 - DEBUG --> (message) before dao get messages 
+1680272306 - DEBUG --> (message) before dao get messages 
+1680272333 - DEBUG --> (message) before dao get messages 
+1680272419 - DEBUG --> (message) before dao get messages 
+1680272419 - DEBUG --> (dao getMessages) after making returnQuery 
+1680272419 - DEBUG --> (dao getMessages) execute done 
+1680272419 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680272586 - DEBUG --> (message) before dao get messages 
+1680272586 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680272613 - DEBUG --> (message) before dao get messages 
+1680272613 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680275874 - DEBUG --> (message) before dao get messages 
+1680275874 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680275955 - DEBUG --> (message) before dao get messages 
+1680275955 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680276027 - DEBUG --> (message) before dao get messages 
+1680276027 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  

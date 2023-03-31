@@ -1,0 +1,75 @@
+body {
+  color: 5B3A00;
+  text-align: center;
+  background-color: #fffff1;
+  font-family: comic sans ms;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+#h1AndLogoDisplay {
+  overflow-y: hidden;
+  display: flex;
+  margin: auto;
+}
+
+h1 {
+  position: relative;
+  margin: 0 auto;
+  font-size: 50px;
+  text-overflow: ellipsis;
+  padding-left: 100px;
+  padding-right: 100px;
+  color: AA6C00;
+  white-space: nowrap;
+  flex-flow: wrap;
+  overflow: hidden;
+}
+
+#h2 {
+  font-size:40px;
+  font-weight: bold;
+
+}
+
+#logoDimensions {
+  max-width: 200px;
+  max-height: 120px;
+}
+
+.menuBar {
+  display: grid;
+  row-gap: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+#menuBarFourCol {
+  grid-template-columns: auto auto auto auto;
+  font-size: 20px;
+}
+
+#menuBarFiveCol {
+  grid-template-columns: auto auto auto auto auto;
+  font-size: 14px;
+}
+
+.menuBarItem {
+  border: 1px solid black;
+  color: black;
+  padding: 8px;
+}
+
+#menuBarItemSelected {
+  background-color: #dffcff;
+}
+
+#footer {
+  font-family: 'Times New Roman', Times, serif;
+  color: #333333;
+  white-space: nowrap;
+  font-size: 1.3vw;
+  text-align: left;
+  margin-top: 5px;
+}

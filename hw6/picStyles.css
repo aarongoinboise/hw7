@@ -1,0 +1,40 @@
+#homeBackgroundPic {
+    background-image: url(images/string.jpg);
+}
+
+#signInBackgroundPic {
+    background-image: url(images/login.jpg);
+    background-size: contain;
+}
+
+#signUpBackgroundPic {
+    background-image: url(images/signup.jpg);
+}
+
+#aboutBackGroundPic {
+    background-image: url(images/about.jpg);
+}
+
+#studentBackgroundPic {
+    background-image: url(images/sbcknd.jpg);
+    filter: brightness(90%);
+}
+
+#tutorBackgroundPic {
+    background-image: url(images/tbcknd.jpg);
+    filter: brightness(100%);
+}
+
+.backgroundPicFormat {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    left: 0px;
+    position: absolute;
+    top: 150px;
+    bottom: 0;
+    right: 1;
+    left: 1;
+    overflow-y: scroll;
+    display: inline-block;
+}

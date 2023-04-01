@@ -1,5 +1,6 @@
 <?php
 session_start();
+sleep(0.3);
 include("titlefab.php");
 include("h1s.php");
 // if (isset($_SESSION['select'])) {

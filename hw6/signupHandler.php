@@ -69,10 +69,7 @@ if ($dao->checkUser($email) == 1) { // send em back to signup, email already exi
   err($email . " already exists as an email", 'Email already exists, please try another', 'signup.php');
 }
 
-$logger->LogDebug("fully validated");
-
 $u_id = $dao->saveUser($password, $email, $hint);
-$logger->LogDebug("u_id saved for user is {$u_id}");
 if ($u_id == 0) {
   err("signup parameter is too long", 'email, password, or hint information is too long', 'signup.php');
 }
@@ -86,6 +83,5 @@ if ($isTutor) {
 
 /* Final redirect after insertions */
 $_SESSION['message'] = nl2br("Success! You may now login on the \"Sign In\" page." . "\n" . $extraInfo);
-$logger->LogDebug("success message is {$_SESSION['message']}");
 header("Location: signup.php");
 exit();

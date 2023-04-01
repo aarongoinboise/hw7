@@ -12,33 +12,51 @@ $sessionOrPrac = $_SESSION['select'];
 $dao = new Dao();
 $email = $_SESSION['userEmail'];
 
-if ($type == 'tutor') {
-    $email = $_POST['email'];
-    /* email regex */
-    $regex = "/.+@.+\..+/";
-    if (preg_match($regex, $email) != 1) {
-        unset($_SESSION['red']);
-        $_SESSION['red']['email'] = 'set';
-        err("Email doesn't fit pattern", "Email does not exist", 'edit.php?select=' . $sessionOrPrac);
-    }
-    $tEmail = $_SESSION['userEmail'];
-    /* Check if student belongs to tutor*/
-    if ($dao->checkStudentBelongsToTutor($email, $tEmail) != 1) {
-        unset($_SESSION['red']);
-        $_SESSION['red']['email'] = 'set';
-        err($email . " and " . $tEmail . " are not related", 'Student email isn\'t registered with you', 'edit.php?select=' . $sessionOrPrac);
-    }
-    unset($_SESSION['red']['email']);
+$wrongAns1 = $_POST['wrongAns1'];
+if ($wrongAns1 != '') {
+    unset($_SESSION['red']['wrongAns1']);
+}
+$wrongAns2 = $_POST['wrongAns2'];
+if ($wrongAns2 != '') {
+    unset($_SESSION['red']['wrongAns2']);
+}
+$rightAns = $_POST['rightAns'];
+if ($rightAns != '') {
+    unset($_SESSION['red']['rightAns']);
 }
 $descQ = $_POST['descQ'];
 if ($descQ != '') {
     unset($_SESSION['red']['descQ']);
 }
+$date = $_POST['date'];
 if ($date != '') {
     unset($_SESSION['red']['date']);
 }
+
+if ($type == 'tutor') {
+    $email = $_POST['email'];
+    /* email regex */
+    $regex = "/.+@.+\..+/";
+    if (preg_match($regex, $email) != 1) {
+        // unset($_SESSION['red']);
+        $_SESSION['red']['email'] = 'set';
+        if ($date == '') {
+            err("Email doesn't fit pattern and date", "Email and date do not exist", 'edit.php?select=' . $sessionOrPrac);
+        } else {
+            err("Email doesn't fit pattern", "Email does not exist", 'edit.php?select=' . $sessionOrPrac);
+        }
+    }
+    $tEmail = $_SESSION['userEmail'];
+    /* Check if student belongs to tutor*/
+    if ($dao->checkStudentBelongsToTutor($email, $tEmail) != 1) {
+        // unset($_SESSION['red']);
+        $_SESSION['red']['email'] = 'set';
+        err($email . " and " . $tEmail . " are not related", 'Student email isn\'t registered with you', 'edit.php?select=' . $sessionOrPrac);
+    }
+    unset($_SESSION['red']['email']);
+}
 if ($descQ == '') {
-    if ($date == '') {
+    if ($date == '' && $sessionOrPrac == "session") {
         err("desQ and date are blank", "Please make sure description and date are filled out before signing up", 'edit.php?select=' . $sessionOrPrac);
     } else {
         $logger->LogDebug("SESSION['select'] before redirect: {$_SESSION['select']}");
@@ -46,7 +64,6 @@ if ($descQ == '') {
     }
 }
 if ($sessionOrPrac == "session") {
-    $date = $_POST['date'];
     if ($date == '') {
         err("session date is blank", "Please make sure the date is filled out before signing up", 'edit.php?select=' . $sessionOrPrac);
     }
@@ -60,22 +77,17 @@ if ($sessionOrPrac == "session") {
 
 
 } else {
-    $wrongAns1 = $_POST['wrongAns1'];
-    if ($wrongAns1 != '') {
-        unset($_SESSION['red']['wrongAns1']);
-    }
-    $wrongAns2 = $_POST['wrongAns2'];
-    if ($wrongAns2 != '') {
-        unset($_SESSION['red']['wrongAns2']);
-    }
-    $rightAns = $_POST['rightAns'];
-    if ($rightAns != '') {
-        unset($_SESSION['red']['rightAns']);
-    }
     if ($wrongAns1 == '' || $wrongAns2 == '' || $rightAns == '') {
         err("a wrongAns or rightAns date is blank", "Please make sure all options are filled out before signing up", 'edit.php?select=' . $sessionOrPrac);
     }
     /* Insert practice */
+    if ($dao->checkPractice($email) == 1) {
+        $pID = $dao->getPID($email);
+        $dao->savePractice($email, $descQ, $wrongAns1, $wrongAns2, $rightAns);
+        $dao->deletePractice($pID);
+    } else {
+        $dao->savePractice($email, $descQ, $wrongAns1, $wrongAns2, $rightAns);
+    }
 }
 
 /* Final redirect after insertions */

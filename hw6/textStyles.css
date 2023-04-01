@@ -14,8 +14,16 @@ h2 {
   font-size: 27px;
 }
 
+#varyP {
+  font-size: 2vw;
+}
+
+#underline {
+  text-decoration: underline;
+}
+
 #sTHomeText {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 #formText {

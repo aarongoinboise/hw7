@@ -10,6 +10,9 @@ if (isset($_SESSION['mType'])) {
 if (isset($_SESSION['select'])) {
   unset($_SESSION['select']);
 }
+if (isset($_SESSION['inputs'])) {
+  unset($_SESSION['inputs']);
+}
 $h1 = 'Read/Send';
 $type == 'tutor' ? $h1 .= '/Delete Messages' : $h1 .= ' Messages';
 ?>
@@ -27,54 +30,73 @@ $type == 'tutor' ? $h1 .= '/Delete Messages' : $h1 .= ' Messages';
 
   <div id="<?php echo $type == 'tutor' ? 'tutorBackgroundPic' : 'studentBackgroundPic' ?>" class="backgroundPicFormat">
     <?php include("formM.php");
+    $dao = new Dao();
     ?>
-    <div id="formText">
-      <?php
-      $dao = new Dao();
-      ?>
 
-      <form method="POST" action="messageHandler.php">
+    <form method="POST" action="messageHandler.php">
+      <div id="varyP">
         <?php
+        $noStudentsT = false;
         if ($type == 'tutor') {
-          ?>
-          <p>
-            Write the student email this message is going to:
-            <input class="<?php echo classSet('sEmail') ?>" type="text" name="sEmail"
-              value="<?php echo seshSet('sEmail') ?>" placeholder="ex: email@provider.net"><?php echo dot('sEmail') ?>
-          </p>
-          <?php
-        } ?>
-        <p>
-          <?php
+          $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
+          if (count($emails) == 0) {
+            echo "You have no students, which means no messages!";
+            $noStudentsT = true;
+          }
+          if (!$noStudentsT) {
+            ?>
+            <p>
+              Write the student email this message is going to:
+              <input class="<?php echo classSet('sEmail') ?>" type="text" name="sEmail"
+                value="<?php echo seshSet('sEmail') ?>" placeholder="ex: email@provider.net"><?php echo dot('sEmail') ?>
+            </p>
+            <?php
+          }
+        }
+        if (!$noStudentsT) {
+          echo "<p>";
           $labelM = "Write a brief message to send to ";
           echo $type == 'tutor' ? $labelM .= 'a student:' : $labelM .= 'your tutor: ';
           ?>
           <input class="<?php echo classSet('message') ?>" type="text" name="message"
             value="<?php echo seshSet('message') ?>" placeholder="ex: great session!"><?php echo dot('message') ?>
           <input type="submit" value="Send Message!">
-        </p>
-        <p>
-          <?php
-          if ($type == 'tutor') {
-          } else {
-            ?>
-          <div id="tableTitle">
+          </p>
+          <p>
             <?php
-            echo $email . nl2br("\n");
+        }
+        if ($type == 'tutor' && !$noStudentsT) {
+          foreach ($emails as $e) {
+            echo table::renderTableTopM($e[0]);
             ?>
-          </div>
-          <?php
-          echo table::renderTableTopNoDelete();
-          $logger->LogDebug("(message) before dao get messages"); //
-          $messages = $dao->getMessages($email);
-          $logger->LogDebug("(MESSAGE) after dao get messages: messages length {$messages[0][0]} {$messages[0][1]} {$messages[0][2]}"); //
-          echo table::renderMessageTableStudent($messages, $email);
-          echo "</table>";
+              <?php
+              ?>
+              <?php
+              $messages = $dao->getMessages($e[0]);
+              echo table::renderMessageTableStudent($messages, $e[0], $email, true);
+              echo "</table>";
           }
+          $x++;
+
+        } elseif (!$noStudentsT) {
           ?>
-        </p>
-      </form>
-    </div>
+            <!-- <div id="tableTitle">
+            <?php
+            // echo $email . nl2br("\n");
+            ?>
+          </div> -->
+            <?php
+            echo table::renderTableTopMNoDelete($email);
+            $messages = $dao->getMessages($email);
+            echo table::renderMessageTableStudent($messages, $email, $dao->getTutorEmailFromStudent($email), false);
+            echo "</table>";
+        }
+        if (!$noStudentsT) {
+          echo "</p>";
+        }
+        ?>
+      </div>
+    </form>
     <?php include("footer.php"); ?>
   </div>
   </body>

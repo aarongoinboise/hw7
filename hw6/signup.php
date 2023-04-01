@@ -1,5 +1,6 @@
 <?php
 session_start();
+sleep(0.3);
 include("titlefab.php");
 include("h1s.php");
 require_once("saveFormTxt.php");
@@ -16,6 +17,7 @@ if (isset($_SESSION['userEmail'])) {
 if (isset($_SESSION['mType'])) {
   unset($_SESSION['mType']);
 }
+
 ?>
 <h1>Sign Up</h1>
 </div>

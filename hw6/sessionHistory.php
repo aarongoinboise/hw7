@@ -10,6 +10,9 @@ if (isset($_SESSION['mType'])) {
 if (isset($_SESSION['select'])) {
   unset($_SESSION['select']);
 }
+if (isset($_SESSION['inputs'])) {
+  unset($_SESSION['inputs']);
+}
 ?>
 <h1>Session History</h1>
 </div>
@@ -25,7 +28,7 @@ $_POST['selected'] = 'sessionHistory';
   <div id="<?php echo $type == 'tutor' ? 'tutorBackgroundPic' : 'studentBackgroundPic' ?>" class="backgroundPicFormat">
     <?php include("formM.php");
     ?>
-    <div id="smallerP">
+    <div id="varyP">
       <?php
       $dao = new Dao();
       ?>
@@ -36,31 +39,31 @@ $_POST['selected'] = 'sessionHistory';
               echo "You have no students, which means no session histories!";
             }
             foreach ($emails as $e) {
-              echo table::renderTableTop();
+              echo table::renderTableTopSH($e[0]);
               ?>
-              <div id="tableTitle">
+              <!-- <div id="tableTitle">
                 <?php
-                echo $e[0] . nl2br("\n");
+                //echo $e[0] . nl2br("\n");
                 ?>
-              </div>
+              </div> -->
               <?php
               $sessionHistory = $dao->getSessionHistory($e[0]);
-              echo table::renderSessionTableStudent($sessionHistory);
+              echo table::renderSessionTableStudent($sessionHistory, 1);
               echo "</table>";
             }
             $x++;
 
           } else {
             ?>
-            <div id="tableTitle">
+            <!-- <div id="tableTitle">
               <?php
-              echo $email . nl2br("\n");
+              //echo $email . nl2br("\n");
               ?>
-            </div>
+            </div> -->
             <?php
-            echo table::renderTableTop();
+            echo table::renderTableTopSHNoDelete($email);
             $sessionHistory = $dao->getSessionHistory($email);
-            echo table::renderSessionTableStudent($sessionHistory);
+            echo table::renderSessionTableStudent($sessionHistory, 0);
             echo "</table>";
           } // end of else
           ?>

@@ -9,15 +9,16 @@ CREATE TABLE user (
 CREATE TABLE tutor (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	u_id INT NOT NULL,
+	nextSesh DATE,
 	FOREIGN KEY(u_id) REFERENCES user(id)
 );
 
 CREATE TABLE practice (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	practiceQuestion VARCHAR(100) NOT NULL,
-	questionOption1 VARCHAR(100) NOT NULL,
-	questionOption2 VARCHAR(100) NOT NULL,
-	questionOption3 VARCHAR(100) NOT NULL
+	wrongOption1 VARCHAR(100) NOT NULL,
+	wrongOption2 VARCHAR(100) NOT NULL,
+	rightOption VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE student (
@@ -45,7 +46,7 @@ CREATE TABLE studentSessions (
 
 CREATE TABLE messages ( /* these are only student messages from their side */
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	m_date DATE NOT NULL,
+	m_date DATETIME NOT NULL,
 	m_description VARCHAR(100) NOT NULL, /* include to and from params */
 	studentSentMessage BOOL NOT NULL
 );

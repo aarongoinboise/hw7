@@ -113,3 +113,206 @@
 1680275955 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
 1680276027 - DEBUG --> (message) before dao get messages 
 1680276027 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680293730 - DEBUG --> (message) before dao get messages 
+1680293730 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680293869 - DEBUG --> (message) before dao get messages 
+1680293869 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680293928 - DEBUG --> (message) before dao get messages 
+1680293928 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680294377 - DEBUG --> was able to save message for date 2023-03-31 
+1680294377 - DEBUG --> (message) before dao get messages 
+1680294377 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 asdfasd sdf  
+1680295006 - DEBUG --> (message) before dao get messages 
+1680295006 - DEBUG --> (MESSAGE) after dao get messages: messages length    
+1680295018 - DEBUG --> (message) before dao get messages 
+1680295018 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:36:58 great session! 
+1680295026 - DEBUG --> (message) before dao get messages 
+1680295026 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295052 - DEBUG --> (message) before dao get messages 
+1680295052 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295134 - DEBUG --> (message) before dao get messages 
+1680295134 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295178 - DEBUG --> (message) before dao get messages 
+1680295178 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295226 - DEBUG --> messageHandler before saveMessage 
+1680295231 - DEBUG --> (message) before dao get messages 
+1680295231 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295270 - DEBUG --> NOWmessageHandler before saveMessage 
+1680295274 - DEBUG --> (message) before dao get messages 
+1680295274 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295315 - DEBUG --> NOWmessageHandler before saveMessage 
+1680295452 - DEBUG --> (message) before dao get messages 
+1680295452 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295455 - DEBUG --> NOWDao after first execute 
+1680295459 - DEBUG --> (message) before dao get messages 
+1680295459 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295566 - DEBUG --> NOWmessageHandler after dao savemessage before err 
+1680295566 - DEBUG --> (message) before dao get messages 
+1680295566 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:37:06 I mean it 
+1680295572 - DEBUG --> (message) before dao get messages 
+1680295572 - DEBUG --> (MESSAGE) after dao get messages: messages length 1 2023-03-31 14:46:12 shorter message 
+1680302694 - DEBUG --> NOWmessageHandler after dao savemessage before err 
+1680302849 - DEBUG --> dao saveMessage beginning email: student1@gmail.com desc: hi there studentSent:  
+1680302849 - DEBUG --> NOWmessageHandler after dao savemessage before err 
+1680302979 - DEBUG --> in mHandler: 
+1680302979 - DEBUG --> dao saveMessage beginning email: student1@gmail.com desc: hi there studentSent:  
+1680303208 - DEBUG --> in mHandler: 
+1680303317 - DEBUG --> dao saveMessage  
+1680303358 - DEBUG --> dao saveMessage INSERT INTO messages
+                (m_date, m_description, studentSentMessage)
+                VALUES
+                (now(), :m_description, 0) 
+1680303383 - DEBUG --> dao saveMessage rCntOne 0 
+1680303398 - DEBUG --> dao saveMessage rCntOne 0 
+1680303531 - DEBUG --> dao saveMessage rCntOne 0 
+1680303614 - DEBUG --> dao saveMessage query 1 INSERT INTO messages
+                (m_date, m_description, studentSentMessage)
+                VALUES
+                (now(), :m_description, 0) 
+1680303658 - DEBUG --> dao saveMessage query 1 INSERT INTO messages
+                (m_date, m_description, studentSentMessage)
+                VALUES
+                (now(), :m_description, 0) desc: hi there email: student1@gmail.com 
+1680303785 - DEBUG --> dao saveMessage query 1 INSERT INTO messages
+            (m_date, m_description, studentSentMessage)
+            VALUES
+            (now(), :m_description, :studentSent) desc: hi there email: student1@gmail.com 
+1680303811 - DEBUG --> dao saveMessage rCntOne 0 
+1680303921 - DEBUG --> dao saveMessage rCntOne  
+1680313677 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680313708 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680313729 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680313787 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680313793 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680313847 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314112 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314145 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314407 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314415 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314556 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314559 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314566 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314589 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314738 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314738 - DEBUG --> homeM currEmail: student4tutor3@gmail.com 
+1680314769 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314771 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314775 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314804 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314808 - DEBUG --> curr email: student4tutor3@gmail.com 
+1680314823 - DEBUG --> curr email: student1@gmail.com 
+1680314823 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680314867 - DEBUG --> curr email: student1@gmail.com 
+1680314867 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680316898 - DEBUG --> curr email: student1@gmail.com 
+1680316898 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680316917 - DEBUG --> curr email: student1@gmail.com 
+1680316917 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680318381 - DEBUG --> curr email: student1@gmail.com 
+1680318381 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680320251 - DEBUG --> dao checkP rCnt: 0 
+1680320423 - DEBUG --> dao checkP rCnt: 0 
+1680320533 - DEBUG --> dao checkP _id 1 
+1680320533 - DEBUG --> dao checkP rCnt: 0 
+1680320682 - DEBUG --> dao checkP saveQ SELECT *
+            FROM student
+            WHERE id = 1
+            AND p_id <> NULL 
+1680320682 - DEBUG --> dao checkP s_id 1 
+1680320682 - DEBUG --> dao checkP rCnt: 0 
+1680320819 - DEBUG --> dao checkP saveQ SELECT *
+            FROM student
+            WHERE id = 1
+            AND p_id <> 'NULL' 
+1680320819 - DEBUG --> dao checkP s_id 1 
+1680320819 - DEBUG --> dao checkP rCnt: 1 
+1680320819 - DEBUG --> HERE deleteP p_id: {p_id} 
+1680321009 - DEBUG --> HERE deleteP p_id: 11 
+1680321151 - DEBUG --> HERE deleteP p_id: 12 
+1680321151 - DEBUG --> HERE deleteP deleteQ: DELETE FROM practice
+            WHERE id = 12 
+1680321327 - DEBUG --> HERE deleteP p_id: 13 
+1680321327 - DEBUG --> HERE deleteP deleteQ: DELETE FROM practice
+            WHERE id = 13 
+1680321327 - DEBUG --> HERE eH got to dP 
+1680321504 - DEBUG --> HERE deleteP p_id: 14 
+1680321504 - DEBUG --> HERE deleteP deleteQ: DELETE FROM practice
+            WHERE id = 14 
+1680321504 - DEBUG --> HERE eH got to dP 
+1680321624 - DEBUG --> HERE deleteP p_id: 15 
+1680321624 - DEBUG --> HERE deleteP deleteQ: DELETE FROM practice
+            WHERE id = :p_id 
+1680321624 - DEBUG --> HERE eH got to dP 
+1680321924 - DEBUG --> HERE deleteP p_id: 16 
+1680321924 - DEBUG --> HERE deleteP deleteQ: DELETE FROM practice
+            WHERE id = :p_id 
+1680321924 - DEBUG --> HERE eH got to dP 
+1680322068 - DEBUG --> HERE deleteP p_id: 17 
+1680322068 - DEBUG --> HERE eH got to dP 
+1680322289 - DEBUG --> pdo DP rCnt: 0 
+1680322289 - DEBUG --> HERE eH got to dP 
+1680322400 - DEBUG --> pdo DP dQ: DELETE FROM practice
+            WHERE id = 19 
+1680322400 - DEBUG --> pdo DP rCnt: 0 
+1680322400 - DEBUG --> HERE eH got to dP 
+1680322455 - DEBUG --> pdo DP dQ: DELETE FROM practice
+            WHERE id = 19 
+1680322455 - DEBUG --> pdo DP rCnt: 1 
+1680322455 - DEBUG --> HERE eH got to dP 
+1680322564 - DEBUG --> HERE eH got to dP 
+1680322713 - DEBUG --> HERE eH got to dP 
+1680322843 - DEBUG --> HERE eH got to dP 
+1680323025 - DEBUG --> 1680323025 HERE eH got to dP 
+1680323344 - DEBUG --> dao dP p_id: 25 
+1680323344 - DEBUG --> 1680323344 HERE eH got to dP 
+1680323413 - DEBUG --> dao dP p_id: 26 
+1680323413 - DEBUG --> 1680323413 HERE eH got to dP 
+1680323624 - DEBUG --> dao dP dQ: DELETE FROM practice
+            WHERE id = :p_id p_id: 27 
+1680323624 - DEBUG --> 1680323624 HERE eH got to dP 
+1680323753 - DEBUG --> dao dP dQ: DELETE FROM practice
+            WHERE id = :p_id p_id: 0 
+1680323753 - DEBUG --> 1680323753 HERE eH got to dP 
+1680323845 - DEBUG --> dao dP dQ: DELETE FROM practice
+            WHERE id = :p_id p_id: 29 
+1680323845 - DEBUG --> 1680323845 HERE eH got to dP 
+1680324111 - DEBUG --> dao dP dQ: DELETE FROM practice
+            WHERE id = :p_id p_id: 30 
+1680324111 - DEBUG --> 1680324111 HERE eH got to dP 
+1680324238 - DEBUG --> dao dP dQ: DELETE FROM practice
+            WHERE id = :p_id p_id: 31 
+1680324238 - DEBUG --> 1680324238 HERE eH got to dP 
+1680324318 - DEBUG --> dao dP dQ: DELETE FROM practice
+            WHERE id = 32 p_id: 32 
+1680324705 - DEBUG --> dao dP dQ: DELETE FROM practice
+            WHERE id = (
+                SELECT p.id
+                FROM student s
+                JOIN user u ON s.u_id = u.id
+                JOIN practice p ON s.p_id = p.id
+                WHERE u.email = :email
+            ) 
+1680325144 - DEBUG --> dao dP dQ: DELETE FROM practice
+            where id=:id 
+1680325357 - DEBUG --> dao dP dQ: DELETE FROM practice
+            where id=:id 
+1680325454 - DEBUG --> dao dP dQ: DELETE FROM practice
+            where id=:id 
+1680355968 - DEBUG --> curr email: student1@gmail.com 
+1680355968 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680366254 - DEBUG --> curr email: student1@gmail.com 
+1680366254 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680366488 - DEBUG --> curr email: student1@gmail.com 
+1680366488 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680366495 - DEBUG --> curr email: student1@gmail.com 
+1680366495 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680366562 - DEBUG --> SESSION['select'] before redirect: session 
+1680366704 - DEBUG --> SESSION['select'] before redirect: practice 
+1680366740 - DEBUG --> SESSION['select'] before redirect: practice 
+1680366751 - DEBUG --> dao dP dQ: DELETE FROM practice
+            where id=:id 
+1680366887 - DEBUG --> curr email: student1@gmail.com 
+1680366887 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680370382 - DEBUG --> curr email: student1@gmail.com 
+1680370382 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680370472 - DEBUG --> curr email: student4tutor5@gmail.com 

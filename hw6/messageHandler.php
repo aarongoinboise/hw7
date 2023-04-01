@@ -16,9 +16,9 @@ if ($message != '') {
     unset($_SESSION['red']['message']);
 }
 
-$studentSent = true;
+$studentSent = 1;
 if ($type == 'tutor') {
-    $studentSent = false;
+    $studentSent = 0;
     $sEmail = $_POST['sEmail'];
     if ($sEmail != '') {
         unset($_SESSION['red']['sEmail']);
@@ -35,7 +35,7 @@ if ($type == 'tutor') {
     /* email regex */
     $regex = "/.+@.+\..+/";
     if (preg_match($regex, $sEmail) != 1) {
-        $_SESSION['red']['email'] = 'set';
+        $_SESSION['red']['sEmail'] = 'set';
         err("Email doesn't fit pattern", "Email does not exist", 'message.php');
     }
     /* Check if student belongs to tutor*/
@@ -51,12 +51,10 @@ if ($message == '') {
     err("message is blank", "Please provide a message", 'message.php');
 }
 
-date_default_timezone_set('America/Boise');
-$date = date('Y-m-d');
-if ($dao->saveMessage($date, $message, $studentSent, $email) != 2) {
+if ($dao->saveMessage($message, $studentSent, $email) != 2) {
     err("message is too long", "Please provide a shorter message", 'message.php');
 }
-$logger->LogDebug("was able to save message for date {$date}");
+
 /* Final redirect after insertions */
 $_SESSION['message'] = 'Success! You have sent your message!';
 header("Location: message.php");

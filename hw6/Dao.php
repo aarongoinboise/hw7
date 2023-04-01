@@ -80,6 +80,9 @@ class Dao
         $q->bindParam(":desc", $desc);
         $q->execute();
         $rCntOne = $q->rowCount();
+        if ($rCntOne != 1) {
+            return 0;
+        }
 
         $session_id = $conn->lastInsertId();
         $saveQuery =
@@ -95,10 +98,28 @@ class Dao
 
     public function savePractice($email, $question, $opt1, $opt2, $opt3) // practice and update student
     {
-
+        $conn = $this->getConnection();
+        $saveQuery =
+            "INSERT INTO practice
+            (practiceQuestion, wrongOption1, wrongOption2, rightOption)
+            VALUES
+            (:question, :opt1, :opt2, :opt3)";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":question", $question);
+        $q->bindParam(":opt1", $opt1);
+        $q->bindParam(":opt2", $opt2);
+        $q->bindParam(":opt3", $opt3);
+        $q->execute();
+        $p_id = $conn->lastInsertId();
+        $s_id = Dao::getSID($email);
+        $saveQuery =
+            "UPDATE student
+            SET p_id = $p_id
+            WHERE id = $s_id";
+        $conn->query($saveQuery);
     }
 
-    public function saveMessage($m_date, $m_description, $studentSent, $email)
+    public function saveMessage($m_description, $studentSent, $email)
     {
         $s_id = Dao::getSID($email);
         $conn = $this->getConnection();
@@ -106,13 +127,15 @@ class Dao
             "INSERT INTO messages
             (m_date, m_description, studentSentMessage)
             VALUES
-            (:m_date, :m_description, :studentSent)";
+            (now(), :m_description, :studentSent)";
         $q = $conn->prepare($saveQuery);
-        $q->bindParam(":m_date", $m_date);
         $q->bindParam(":m_description", $m_description);
         $q->bindParam(":studentSent", $studentSent);
         $q->execute();
         $rCntOne = $q->rowCount();
+        if ($rCntOne != 1) {
+            return 0;
+        }
 
         $m_id = $conn->lastInsertId();
         $saveQuery =
@@ -124,6 +147,18 @@ class Dao
 
         $ret = $rCntTwo + $rCntOne;
         return $ret;
+    }
+
+    public function saveNextSesh($date, $t_id)
+    {
+        $conn = $this->getConnection();
+        $saveQuery =
+            "UPDATE tutor
+            SET nextSesh = :date
+            WHERE id = $t_id";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":date", $date);
+        $q->execute();
     }
 
     public function getSID($email)
@@ -139,6 +174,21 @@ class Dao
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
         return $q->fetchColumn();
+    }
+
+    public function checkPractice($email)
+    {
+        $conn = $this->getConnection();
+        $s_id = Dao::getSID($email);
+        $saveQuery =
+            "SELECT *
+            FROM student
+            WHERE id = $s_id
+            AND p_id <> 'NULL'";
+        $q = $conn->prepare($saveQuery);
+        $q->execute();
+        $rCnt = $q->rowCount();
+        return $rCnt;
     }
 
     public function checkUser($email)
@@ -275,7 +325,7 @@ class Dao
         return $q->rowCount();
     }
 
-    function updateSession($newDesc, $sDate)
+    public function updateSession($newDesc, $sDate)
     {
         $conn = $this->getConnection();
         $updateQuery =
@@ -288,7 +338,24 @@ class Dao
         $q->execute();
     }
 
-    function deleteSession($id)
+    public function deleteMessage($id)
+    {
+        $conn = $this->getConnection();
+        $deleteQuery =
+            "DELETE FROM studentMessages
+            WHERE m_id=:id";
+        $q = $conn->prepare($deleteQuery);
+        $q->bindParam(":id", $id);
+        $q->execute();
+        $deleteQuery =
+            "DELETE FROM messages
+            WHERE id=:id";
+        $q = $conn->prepare($deleteQuery);
+        $q->bindParam(":id", $id);
+        $q->execute();
+    }
+
+    public function deleteSession($id)
     {
         $conn = $this->getConnection();
         $deleteQuery =
@@ -304,6 +371,35 @@ class Dao
         $q->bindParam(":id", $id);
         $q->execute();
     }
+
+    public function deletePractice($id)
+    {
+        global $logger;
+        $conn = $this->getConnection();
+        $deleteQuery =
+            "DELETE FROM practice
+            where id=:id";
+        $logger->LogDebug("dao dP dQ: {$deleteQuery}");
+        $q = $conn->prepare($deleteQuery);
+        $q->bindParam(":id", $id);
+        $q->execute();
+    }
+
+    public function getPID($email)
+    {
+        $id = Dao::getSID($email);
+        $conn = $this->getConnection();
+        $saveQuery =
+            "SELECT p_id
+            FROM student
+            WHERE id = :id";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":id", $id);
+        $q->execute();
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        return $q->fetchColumn();
+    }
+
 
     public function getPassword($email)
     {
@@ -363,9 +459,10 @@ class Dao
         return $ret;
     }
 
-    public function getTutorFromStudent($sEmail) {
+    public function getTutorEmailFromStudent($sEmail)
+    {
         $conn = $this->getConnection();
-        $returnQuery = 
+        $returnQuery =
             "SELECT u.email
             FROM user u
             JOIN tutor t ON u.id = t.u_id
@@ -375,16 +472,31 @@ class Dao
                 JOIN student s ON u.id = s.u_id
                 WHERE u.email = :sEmail
             )";
-            $q = $conn->prepare($returnQuery);
-            $q->bindParam(":sEmail", $sEmail);
-            $q->execute();
-            $q->setFetchMode(PDO::FETCH_ASSOC);
-            return $q->fetchColumn();
+        $q = $conn->prepare($returnQuery);
+        $q->bindParam(":sEmail", $sEmail);
+        $q->execute();
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        return $q->fetchColumn();
     }
 
-    public function getLastSession()
+    public function getLastSession($sEmail)
     {
-
+        $conn = $this->getConnection();
+        $returnQuery =
+            "SELECT MAX(s_date)
+            FROM sessionHistories sH
+	        JOIN studentSessions sS ON sH.id = sS.session_id
+            WHERE sS.student_id = (
+                SELECT s.id
+                FROM student s
+                JOIN user u ON s.u_id = u.id
+                WHERE u.email = :sEmail
+            );";
+        $q = $conn->prepare($returnQuery);
+        $q->bindParam(":sEmail", $sEmail);
+        $q->execute();
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        return $q->fetchColumn();
     }
 
     public function getStudentEmails($t_id)
@@ -404,7 +516,7 @@ class Dao
 
     public function getSessionHistory($sEmail)
     {
-        $conn = $this->getConnection(); //, sH.s_description AS Description
+        $conn = $this->getConnection();
         $returnQuery =
             "SELECT sH.s_date, sH.s_description
             FROM user u
@@ -420,7 +532,24 @@ class Dao
         return $q->fetchAll();
     }
 
-    public function getMessages($sEmail) {
+    public function getPractice($sEmail) {
+        $conn = $this->getConnection();
+        $id = Dao::getPID($sEmail);
+        $returnQuery =
+            "SELECT p.practiceQuestion, p.wrongOption1, p.wrongOption2, p.rightOption
+            FROM user u
+            JOIN student s ON u.id = s.u_id
+            JOIN practice p ON s.p_id = p.id
+            WHERE p.id = :id";
+
+        $q = $conn->prepare($returnQuery);
+        $q->bindParam(":id", $id);
+        $q->execute();
+        return $q->fetchAll();
+    }
+
+    public function getMessages($sEmail)
+    {
         $conn = $this->getConnection();
         $returnQuery =
             "SELECT m.studentSentMessage, m.m_date, m.m_description
@@ -446,6 +575,34 @@ class Dao
             WHERE s_date = :date";
         $q = $conn->prepare($returnQuery);
         $q->bindParam(":date", $date);
+        $q->execute();
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        return $q->fetchColumn();
+    }
+
+    public function getMessageId($date)
+    {
+        $conn = $this->getConnection();
+        $returnQuery =
+            "SELECT id
+            FROM messages
+            WHERE m_date = :date";
+        $q = $conn->prepare($returnQuery);
+        $q->bindParam(":date", $date);
+        $q->execute();
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        return $q->fetchColumn();
+    }
+
+    public function getNextSession($id)
+    {
+        $conn = $this->getConnection();
+        $returnQuery =
+            "SELECT nextSesh
+            FROM tutor
+            WHERE id = :id";
+        $q = $conn->prepare($returnQuery);
+        $q->bindParam(":id", $id);
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
         return $q->fetchColumn();

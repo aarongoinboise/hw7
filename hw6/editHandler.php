@@ -109,6 +109,7 @@ if ($sessionOrPrac == "session") {
         for ($x = 0; $x < count($sH); $x++) {
             if ($sH[$x][0] == $date) {
                 if ($sH[$x][1] == $descQ) {
+                    $_SESSION['red'] = $_POST;
                     err("editPrac matching session history", 'Description is the same for the specified date', 'edit.php?select=' . $sessionOrPrac);
                 }
             }

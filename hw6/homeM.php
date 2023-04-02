@@ -62,7 +62,9 @@ if (isset($_SESSION['select'])) {
             <p>
                 <?php
                 if ($type != 'tutor') {
-                    echo (count($dao->getMessages($email)[0]) != 0) ? 'Check out all messages <a href=message.php>here</a>' : 'You don\'t have any messages';
+                    $mCount = count($dao->getMessages($email));
+                    $logger->LogDebug("curr email: {$e[0]} mCount: {$mCount}");
+                    echo ($mCount != 0) ? 'Check out all messages <a href=message.php>here</a>' : 'You don\'t have any messages';
                 } else {
                     $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
                     $sadMessage = '';

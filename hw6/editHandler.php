@@ -107,8 +107,8 @@ if ($sessionOrPrac == "session") {
     if ($dao->checkSessionDate($date) > 0) {
         $sH = $dao->getSessionHistory($email);
         for ($x = 0; $x < count($sH); $x++) {
-            if ($sessionHistory[$x][0] == $date) {
-                if ($sessionHistory[$x][1] == $descQ) {
+            if ($sH[$x][0] == $date) {
+                if ($sH[$x][1] == $descQ) {
                     err("editPrac matching session history", 'Description is the same for the specified date', 'edit.php?select=' . $sessionOrPrac);
                 }
             }

@@ -176,6 +176,20 @@ class Dao
         return $q->fetchColumn();
     }
 
+    public function getPRightAnswer($email) {
+        $conn = $this->getConnection();
+        $id = Dao::getPID($email);
+        $selectQuery =
+            "SELECT p.rightOption
+            FROM practice p
+            WHERE id = :id";
+        $q = $conn->prepare($selectQuery);
+        $q->bindParam(":id", $id);
+        $q->execute();
+        $q->setFetchMode(PDO::FETCH_ASSOC);
+        return $q->fetchColumn();
+    }
+
     public function checkPractice($email)
     {
         $conn = $this->getConnection();
@@ -606,6 +620,18 @@ class Dao
         $q->execute();
         $q->setFetchMode(PDO::FETCH_ASSOC);
         return $q->fetchColumn();
+    }
+
+    public function resetHint($email, $hint) {
+        $conn = $this->getConnection();
+        $saveQuery =
+            "UPDATE user
+            SET hint = :hint
+            WHERE email = :email";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":email", $email);
+        $q->bindParam(":hint", $hint);
+        $q->execute();
     }
 
 } // end Dao

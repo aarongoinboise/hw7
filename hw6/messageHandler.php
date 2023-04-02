@@ -40,7 +40,7 @@ if ($type == 'tutor') {
     }
     /* Check if student belongs to tutor*/
     if ($dao->checkStudentBelongsToTutor($sEmail, $email) != 1) {
-        $_SESSION['red']['email'] = 'set';
+        $_SESSION['red']['sEmail'] = 'set';
         err($email . " and " . $tEmail . " are not related", 'Student email isn\'t registered with you', 'message.php');
     }
     unset($_SESSION['red']['email']);

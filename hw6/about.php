@@ -3,16 +3,10 @@ session_start();
 sleep(0.3);
 include("titlefab.php");
 include("h1s.php");
-// if (isset($_SESSION['select'])) {
-//   unset($_SESSION['select']);
-// }
 if (isset($_SESSION['userEmail'])) {
   unset($_SESSION['userEmail']);
   $_SESSION['message'] = "You logged out";
 }
-// if (isset($_SESSION['mType'])) {
-//   unset($_SESSION['mType']);
-// }
 ?>
 <h1>About</h1>
 </div>

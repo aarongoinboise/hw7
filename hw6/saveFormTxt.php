@@ -56,3 +56,10 @@ function findSelectedOptFP($opt)
     }
     return '';
 }
+
+function findRadioBtnSelect($opt) {
+    if ($_SESSION['inputs']['opt'] == $opt) {
+        return 'checked';
+    }
+    return '';
+}

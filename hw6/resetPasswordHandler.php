@@ -24,15 +24,24 @@ if ($reenterNewPassword != '') {
     unset($_SESSION['red']['reenterNewPassword']);
 }
 
-if ($email == '' || $password == '' || $newPassword == '' || $reenterNewPassword == '') {
+$hint = $_POST['hint'];
+if ($hint != '') {
+    unset($_SESSION['red']['hint']);
+}
+
+if ($email == '' || $password == '' || $newPassword == '' || $reenterNewPassword == '' || $hint == '') {
     err("One or more fields are blank", "Please make sure all options are filled out before signing up", 'resetPassword.php');
 }
 
 /* email regex */
 $regex = "/.+@.+\..+/";
+$nonEmail = $wrongEP = $equalPass = $reentErr = 0;
+$bools = array($nonEmail, $wrongEP, $equalPass, $reentErr);
+$errmessages = array("Email does not exist", "Email and/or password are not correct", "New password is the same as current password", 'New passwords don\'t match');
 if (preg_match($regex, $email) != 1) {
+    $bools[0] = 1;
     $_SESSION['red']['email'] = 'set';
-    err("Email doesn't fit pattern", "Email does not exist", 'resetPassword.php');
+    // err("Email doesn't fit pattern", "Email does not exist", 'resetPassword.php');
 }
 
 $dao = new Dao();
@@ -40,23 +49,38 @@ $dao = new Dao();
 if ($dao->checkPassword($email, $password) != 1) {
     $_SESSION['red']['email'] = 'set';
     $_SESSION['red']['password'] = 'set';
-    err($email . " does not exist", 'Email and/or password are not correct', 'resetPassword.php');
+    $bools[1] = 1;
+    // err("Email doesn't fit pattern", "Email and/or password are not correct", 'resetPassword.php');
 }
 
 if ($password == $newPassword) {
     $_SESSION['red']['password'] = 'set';
     $_SESSION['red']['newPassword'] = 'set';
-    err($password . " equals " . $newPassword, 'New password is the same as current password', 'resetPassword.php');
+    $bools[2] = 1;
+    // err($password . " equals " . $newPassword, 'New password is the same as current password', 'resetPassword.php');
 }
 
 if ($newPassword != $reenterNewPassword) {
     $_SESSION['red']['newPassword'] = 'set';
     $_SESSION['red']['reenterNewPassword'] = 'set';
-    err("New passwords don't match", 'New passwords don\'t match', 'resetPassword.php');
+    $bools[3] = 1;
+    // err("New passwords don't match", 'New passwords don\'t match', 'resetPassword.php');
+}
+
+$errS = '';
+for ($i = 0; $i < 4; $i++) {
+  if ($bools[$i] == 1) {
+    $errS .= $errmessages[$i] . nl2br("\n");
+  }
+}
+$sLen = strlen($errS);
+if (strlen($errS) > 0) {
+  err($errS, $errS, 'resetPassword.php');
 }
 
 /* Final redirect after insertions */
 if ($dao->resetPassword($email, $newPassword) === 1) {
+    $dao->resetHint($email, $hint);
     $_SESSION['message'] = 'Success! You have changed your password';
     header("Location: resetPassword.php");
     exit();

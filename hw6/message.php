@@ -10,9 +10,7 @@ if (isset($_SESSION['mType'])) {
 if (isset($_SESSION['select'])) {
   unset($_SESSION['select']);
 }
-if (isset($_SESSION['inputs'])) {
-  unset($_SESSION['inputs']);
-}
+
 $h1 = 'Read/Send';
 $type == 'tutor' ? $h1 .= '/Delete Messages' : $h1 .= ' Messages';
 ?>

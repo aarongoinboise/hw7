@@ -316,3 +316,122 @@
 1680370382 - DEBUG --> curr email: student1@gmail.com 
 1680370382 - DEBUG --> curr email: student4tutor1@gmail.com 
 1680370472 - DEBUG --> curr email: student4tutor5@gmail.com 
+1680387769 - DEBUG --> pHandler right ans: dsf 
+1680387947 - DEBUG --> size: 0 
+1680387947 - DEBUG --> pHandler right ans: dsf 
+1680387969 - DEBUG --> size: 1 
+1680387969 - DEBUG --> pHandler right ans: dsf 
+1680387981 - DEBUG --> size: 0 
+1680388005 - DEBUG --> size: 1 
+1680388005 - DEBUG --> pHandler right ans: dsf 
+1680388010 - DEBUG --> size: 1 
+1680388010 - DEBUG --> pHandler right ans: dsf 
+1680388013 - DEBUG --> size: 1 
+1680388013 - DEBUG --> pHandler right ans: dsf 
+1680388159 - DEBUG --> size: 1 
+1680388159 - DEBUG --> pHandler right ans: dsf 
+1680388161 - DEBUG --> size: 1 
+1680388161 - DEBUG --> pHandler right ans: dsf 
+1680388370 - DEBUG --> size: 1 
+1680388370 - DEBUG --> pHandler right ans: dsf 
+1680388372 - DEBUG --> size: 1 
+1680388372 - DEBUG --> pHandler right ans: dsf 
+1680388374 - DEBUG --> size: 1 
+1680388374 - DEBUG --> pHandler right ans: dsf 
+1680388376 - DEBUG --> size: 1 
+1680388376 - DEBUG --> pHandler right ans: dsf 
+1680388378 - DEBUG --> size: 1 
+1680388378 - DEBUG --> pHandler right ans: dsf 
+1680388381 - DEBUG --> size: 1 
+1680388381 - DEBUG --> pHandler right ans: dsf 
+1680388383 - DEBUG --> size: 1 
+1680388383 - DEBUG --> pHandler right ans: dsf 
+1680388524 - DEBUG --> size: 1 
+1680388524 - DEBUG --> pHandler right ans: dsf 
+1680388609 - DEBUG --> size: 1 
+1680388609 - DEBUG --> pHandler right ans: dsf 
+1680388613 - DEBUG --> size: 2 
+1680388613 - DEBUG --> pHandler right ans: dsf 
+1680388648 - DEBUG --> size: 1 
+1680388648 - DEBUG --> pHandler right ans: dsf 
+1680388654 - DEBUG --> size: 1 
+1680388654 - DEBUG --> pHandler right ans: dsf 
+1680388656 - DEBUG --> size: 1 
+1680388656 - DEBUG --> pHandler right ans: dsf 
+1680388672 - DEBUG --> size: 1 
+1680388672 - DEBUG --> pHandler right ans: dsf 
+1680388676 - DEBUG --> size: 3 
+1680388676 - DEBUG --> pHandler right ans: dsf 
+1680388677 - DEBUG --> size: 2 
+1680388677 - DEBUG --> pHandler right ans: dsf 
+1680388678 - DEBUG --> size: 2 
+1680388678 - DEBUG --> pHandler right ans: dsf 
+1680388948 - DEBUG --> pHandler wrong answer: on 
+1680389345 - DEBUG -->  
+1680389503 - DEBUG --> dsf 
+1680389737 - DEBUG --> curr email: student1@gmail.com 
+1680389737 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680389757 - DEBUG --> dao dP dQ: DELETE FROM practice
+            where id=:id 
+1680389767 - DEBUG --> curr email: student1@gmail.com 
+1680389767 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680393187 - DEBUG --> suH slen: 0 
+1680393229 - DEBUG --> suH slen: 0 
+1680393252 - DEBUG --> suH slen: 0 errS: {errS} 
+1680393260 - DEBUG --> suH slen: 0 errS:  
+1680393294 - DEBUG --> suH slen: 0 errS:  
+1680393327 - DEBUG --> suH slen: 0 errS:  
+1680393368 - DEBUG --> suH boolsS:  
+1680393368 - DEBUG --> suH boolsS:  
+1680393368 - DEBUG --> suH boolsS:  
+1680393368 - DEBUG --> suH boolsS:  
+1680393368 - DEBUG --> suH boolsS:  
+1680393368 - DEBUG --> suH boolsS:  
+1680393368 - DEBUG --> suH slen: 0 errS:  
+1680393462 - DEBUG --> suH boolsS: 0 
+1680393462 - DEBUG --> suH boolsS: 0 
+1680393462 - DEBUG --> suH boolsS: 0 
+1680393462 - DEBUG --> suH boolsS: 0 
+1680393462 - DEBUG --> suH boolsS: 0 
+1680393462 - DEBUG --> suH boolsS: 0 
+1680393462 - DEBUG --> suH slen: 0 errS:  
+1680393603 - DEBUG --> suH boolsS: 1 
+1680393603 - DEBUG --> suH boolsS: 1 
+1680393603 - DEBUG --> suH boolsS: 0 
+1680393603 - DEBUG --> suH boolsS: 1 
+1680393603 - DEBUG --> suH boolsS: 1 
+1680393603 - DEBUG --> suH boolsS: 1 
+1680393603 - DEBUG --> suH slen: 192 errS: |Email does not exist||Passwords don't match||"tutor" or a valid number needs to be in the last box||Email already exists, please try another||email, password, or hint information is too long| 
+1680393700 - DEBUG --> suH boolsS: 1 
+1680393700 - DEBUG --> suH boolsS: 1 
+1680393700 - DEBUG --> suH boolsS: 0 
+1680393700 - DEBUG --> suH boolsS: 1 
+1680393700 - DEBUG --> suH boolsS: 1 
+1680393700 - DEBUG --> suH slen: 162 errS: Email does not exist<br />
+Passwords don't match<br />
+"tutor" or a valid number needs to be in the last box<br />
+Email already exists, please try another<br />
+ 
+1680394460 - DEBUG --> SESSION['select'] before redirect: session 
+1680394472 - DEBUG --> SESSION['select'] before redirect: practice 
+1680394476 - DEBUG --> SESSION['select'] before redirect: practice 
+1680394671 - DEBUG --> curr email: student1@gmail.com 
+1680394671 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680394763 - DEBUG --> curr email: student1@gmail.com 
+1680394763 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680394813 - DEBUG --> curr email: student1@gmail.com 
+1680394813 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680394830 - DEBUG --> curr email: student1@gmail.com 
+1680394830 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680394842 - DEBUG --> curr email: student1@gmail.com 
+1680394842 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680395688 - DEBUG --> curr email: student1@gmail.com 
+1680395688 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680395701 - DEBUG --> curr email: student1@gmail.com 
+1680395701 - DEBUG --> curr email: student4tutor1@gmail.com 
+1680397086 - DEBUG --> dao dP dQ: DELETE FROM practice
+            where id=:id 
+1680397274 - DEBUG --> dao dP dQ: DELETE FROM practice
+            where id=:id 
+1680397407 - DEBUG --> dao dP dQ: DELETE FROM practice
+            where id=:id 

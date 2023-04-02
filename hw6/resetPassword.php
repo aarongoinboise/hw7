@@ -57,6 +57,11 @@ $_POST['menutype'] = 'nonMemberMenuBar';
           value="<?php echo seshSet('reenterNewPassword') ?>" placeholder="reenter new password"><?php echo dot('reenterNewPassword') ?>
       </p>
       <p>
+        Enter a new hint (to remind yourself of the password)
+        <input class="<?php echo classSet('hint') ?>" type="text" name="hint"
+          value="<?php echo seshSet('hint') ?>" placeholder="ex: favorite number"><?php echo dot('hint') ?>
+      </p>
+      <p>
       <div><input type="submit" value="Reset My Password!"></div>
     </form>
     <div>

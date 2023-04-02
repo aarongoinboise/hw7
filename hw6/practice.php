@@ -10,9 +10,7 @@ if (isset($_SESSION['mType'])) {
 if (isset($_SESSION['select'])) {
   unset($_SESSION['select']);
 }
-if (isset($_SESSION['inputs'])) {
-  unset($_SESSION['inputs']);
-}
+
 ?>
 <h1>Practice!</h1>
 </div>
@@ -75,23 +73,25 @@ if (isset($_SESSION['select'])) {
         <form method="POST" action="practiceHandler.php">
           <tr>
             <td></td>
-            <td><input type="radio" name=<?php echo $practice[0][$rand1] ?>></td>
-            <td><input type="radio" name=<?php echo $practice[0][$rand2] ?>></td>
-            <td><input type="radio" name=<?php echo $practice[0][$remNum] ?>></td>
+            <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand1] ?>"<?php echo findRadioBtnSelect($practice[0][$rand1]) ?>></td>
+            <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand2] ?>"<?php echo findRadioBtnSelect($practice[0][$rand2]) ?>></td>
+            <td><input type="radio" name="opt" value="<?php echo $practice[0][$remNum] ?>"<?php echo findRadioBtnSelect($practice[0][$remNum]) ?>></td>
           </tr>
           </table>
-          <div><input type="submit" value="Submit Your Answer!"></div>
+          <p>
+            <input type="submit" value="Submit Your Answer!">
+          </p>
         </form>
       <?php } else { ?>
         </table>
         <p id="smallerP">
-        Edit your student's practice questions <a href=edit.php>here</a>
-      </p>
+          Edit your student's practice questions <a href=edit.php>here</a>
+        </p>
       <?php }
     } ?>
-    </div>
-    <?php include("footer.php"); ?>
   </div>
-  </body>
+  <?php include("footer.php"); ?>
+</div>
+</body>
 
-  </html>
+</html>

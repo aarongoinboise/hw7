@@ -35,15 +35,22 @@ if ($email == '' || $password == '' || $reenterPassword == '' || $hint == '' || 
 
 /* email regex */
 $regex = "/.+@.+\..+/";
+$nonEmail = $pNoMatch = $ghostTNum = $nonTString = $eAlreadyExists = 0;
+$bools = array($nonEmail, $pNoMatch, $ghostTNum, $nonTString, $eAlreadyExists);
+$errmessages = array("Email does not exist", "Passwords don't match", "Tutor number doesn't exist", "\"tutor\" or valid number needs to be in last box", "Email already exists, please try another");
+
 if (preg_match($regex, $email) != 1) {
+  $bools[0] = 1;
   $_SESSION['red']['email'] = 'set';
-  err("Email doesn't fit pattern", "Email does not exist", 'signup.php');
 }
+// err("Email doesn't fit pattern", "Email does not exist", 'signup.php');
+
 
 if ($password != $reenterPassword) {
+  $bools[1] = 1;
   $_SESSION['red']['password'] = 'set';
   $_SESSION['red']['reenterPassword'] = 'set';
-  err("Passwords don't match", 'Passwords don\'t match', 'signup.php');
+  // err("Passwords don't match", 'Passwords don\'t match', 'signup.php');
 }
 
 $dao = new Dao();
@@ -52,27 +59,42 @@ if (is_numeric($tutor)) { // student account is trying to be created
   if ($dao->checkTutorNumber($tutor) == 1) {
     $isTutor = false;
   } else {
+    $bools[2] = 1;
     $_SESSION['red']['tutor'] = 'set';
-    err("Nonexistant tutor number", 'Tutor number doesn\'t exist', 'signup.php');
+    // err("Nonexistant tutor number", 'Tutor number doesn\'t exist', 'signup.php');
   }
 } else {
   if ($tutor == 'tutor') {
     $isTutor = true;
   } else {
+    $bools[3] = 1;
     $_SESSION['red']['tutor'] = 'set';
-    err("Non-num string: tutor not used", '"tutor" or a valid number needs to be in the last box', 'signup.php');
+    // err("Non-num string: tutor not used", '"tutor" or a valid number needs to be in the last box', 'signup.php');
   }
 }
 
 if ($dao->checkUser($email) == 1) { // send em back to signup, email already exists
+  $bools[4] = 1;
   $_SESSION['red']['email'] = 'set';
-  err($email . " already exists as an email", 'Email already exists, please try another', 'signup.php');
+  // err($email . " already exists as an email", 'Email already exists, please try another', 'signup.php');
+}
+
+$errS = '';
+for ($i = 0; $i < 5; $i++) {
+  if ($bools[$i] == 1) {
+    $errS .= $errmessages[$i] . nl2br("\n");
+  }
+}
+$sLen = strlen($errS);
+if (strlen($errS) > 0) {
+  err($errS, $errS, 'signup.php');
 }
 
 $u_id = $dao->saveUser($password, $email, $hint);
 if ($u_id == 0) {
   err("signup parameter is too long", 'email, password, or hint information is too long', 'signup.php');
 }
+
 /* When reaching this point, all values are legit, user is created */
 $extraInfo = '';
 if ($isTutor) {

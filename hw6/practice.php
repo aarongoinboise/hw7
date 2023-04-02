@@ -74,25 +74,27 @@ if (isset($_SESSION['select'])) {
     }
     //find random vals for the checkbox ids
     if (!$noStudentsT) {
-      if ($type != 'tutor' && !$studentNoP) { ?>
-        <form method="POST" action="practiceHandler.php">
-          <tr>
-            <td></td>
-            <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand1] ?>" <?php echo findRadioBtnSelect($practice[0][$rand1]) ?>></td>
-            <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand2] ?>" <?php echo findRadioBtnSelect($practice[0][$rand2]) ?>></td>
-            <td><input type="radio" name="opt" value="<?php echo $practice[0][$remNum] ?>" <?php echo findRadioBtnSelect($practice[0][$remNum]) ?>></td>
-          </tr>
+      if ($type != 'tutor') {
+        if (!$studentNoP) { ?>
+          <form method="POST" action="practiceHandler.php">
+            <tr>
+              <td></td>
+              <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand1] ?>" <?php echo findRadioBtnSelect($practice[0][$rand1]) ?>></td>
+              <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand2] ?>" <?php echo findRadioBtnSelect($practice[0][$rand2]) ?>></td>
+              <td><input type="radio" name="opt" value="<?php echo $practice[0][$remNum] ?>" <?php echo findRadioBtnSelect($practice[0][$remNum]) ?>></td>
+            </tr>
+            </table>
+            <p>
+              <input type="submit" value="Submit Your Answer!">
+            </p>
+          </form>
+        <?php } else { ?>
           </table>
-          <p>
-            <input type="submit" value="Submit Your Answer!">
+          <p id="smallerP">
+            Edit your student's practice questions <a href=edit.php>here</a>
           </p>
-        </form>
-      <?php } else { ?>
-        </table>
-        <p id="smallerP">
-          Edit your student's practice questions <a href=edit.php>here</a>
-        </p>
-      <?php }
+        <?php }
+      }
     } ?>
   </div>
   <?php include("footer.php"); ?>

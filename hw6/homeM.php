@@ -39,7 +39,8 @@ if (isset($_SESSION['select'])) {
             <p>
                 You had your last session on
                 <?php if ($type != 'tutor') {
-                echo $dao->getLastSession($email);
+                    $lS = $dao->getLastSession($email);
+                    echo $lS == '' ? 'an imaginary time' : $lS;
                 } else {
                     $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
                     $newestSesh = date('d-m-Y', 0);
@@ -86,7 +87,7 @@ if (isset($_SESSION['select'])) {
             <p>
                 <?php
                 if ($type == 'tutor') {
-                $nextSesh = $dao->getNextSession($dao->getTutorNumber($email));
+                    $nextSesh = $dao->getNextSession($dao->getTutorNumber($email));
                 } else {
                     $nextSesh = $dao->getNextSession($dao->getTutorNumber($dao->getTutorEmailFromStudent($email)));
                 }
@@ -95,7 +96,7 @@ if (isset($_SESSION['select'])) {
                 echo nl2br("\r\n");
                 ?>
             </p>
-            <?php if ($type == 'tutor') { 
+            <?php if ($type == 'tutor') {
                 $today = date('Y-m-d', strtotime(' - 1 days'));
                 ?>
                 <p>
@@ -104,7 +105,7 @@ if (isset($_SESSION['select'])) {
                     <p>
                         <input type="date" name="date" min="<?php echo $today ?>" class="<?php echo classSet('date') ?>"
                             value="<?php echo seshSet('date') ?>"><?php echo dot('date') ?>
-                            <input type="submit" value="Set My Next Session Date!">
+                        <input type="submit" value="Set My Next Session Date!">
                     <p>
                 </form>
                 </p>

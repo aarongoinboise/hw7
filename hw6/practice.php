@@ -35,6 +35,7 @@ if (isset($_SESSION['select'])) {
     if ($type != 'tutor') {
       $practice = $dao->getPractice($email);
       $studentNoP = false;
+      echo 'No Practice Question exists!';
       if (count($practice) == 0) {
         $studentNoP = true;
       } else {

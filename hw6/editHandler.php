@@ -124,6 +124,7 @@ if ($sessionOrPrac == "session") {
     if ($dao->checkPractice($email) == 1) {
         $p = $dao->getPractice($email);
         if ($p[0][0] == $descQ && $p[0][1] == $wrongAns1 && $p[0][2] == $wrongAns2 && $p[0][3] == $rightAns) {
+            $_SESSION['red'] = $_POST;
             err("editPrac question is the same", 'Everything matches your current question/options', 'edit.php?select=' . $sessionOrPrac);
         }
         $pID = $dao->getPID($email);

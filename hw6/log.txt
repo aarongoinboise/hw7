@@ -435,3 +435,5 @@ Email already exists, please try another<br />
             where id=:id 
 1680397407 - DEBUG --> dao dP dQ: DELETE FROM practice
             where id=:id 
+1680442792 - DEBUG --> curr email: student1@gmail.com 
+1680442792 - DEBUG --> curr email: student4tutor1@gmail.com 

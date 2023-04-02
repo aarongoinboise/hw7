@@ -94,7 +94,7 @@ if ($descQ == '') {
         }
     }
 }
-if(($sessionOrPrac == "practice") && ($wrongAns1 == '' || $wrongAns2 == '' || $rightAns == '')) {
+if (($sessionOrPrac == "practice") && ($wrongAns1 == '' || $wrongAns2 == '' || $rightAns == '')) {
     err("stuff besides q is blank", "Please make sure the answers are filled out before signing up", 'edit.php?select=' . $sessionOrPrac);
 }
 
@@ -110,6 +110,9 @@ if ($sessionOrPrac == "session") {
             if ($sH[$x][0] == $date) {
                 if ($sH[$x][1] == $descQ) {
                     $_SESSION['red'] = $_POST;
+                    if (isset($_SESSION['red']['email'])) {
+                        unset($_SESSION['red']['email']);
+                    }
                     err("editPrac matching session history", 'Description is the same for the specified date', 'edit.php?select=' . $sessionOrPrac);
                 }
             }
@@ -126,6 +129,9 @@ if ($sessionOrPrac == "session") {
         $p = $dao->getPractice($email);
         if ($p[0][0] == $descQ && $p[0][1] == $wrongAns1 && $p[0][2] == $wrongAns2 && $p[0][3] == $rightAns) {
             $_SESSION['red'] = $_POST;
+            if (isset($_SESSION['red']['email'])) {
+                unset($_SESSION['red']['email']);
+            }
             err("editPrac question is the same", 'Everything matches your current question/options', 'edit.php?select=' . $sessionOrPrac);
         }
         $pID = $dao->getPID($email);

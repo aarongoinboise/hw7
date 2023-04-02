@@ -35,9 +35,9 @@ if (isset($_SESSION['select'])) {
     if ($type != 'tutor') {
       $practice = $dao->getPractice($email);
       $studentNoP = false;
-      echo 'No Practice Question exists!';
       if (count($practice) == 0) {
         $studentNoP = true;
+        echo 'No Practice Question exists!';
       } else {
         $rightAns = $practice[0][3];
         $rand1 = rand(1, 3);

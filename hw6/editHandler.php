@@ -105,6 +105,14 @@ if ($sessionOrPrac == "session") {
 
     /* Insert session */
     if ($dao->checkSessionDate($date) > 0) {
+        $sH = $dao->getSessionHistory($email);
+        for ($x = 0; $x < count($sH); $x++) {
+            if ($sessionHistory[$x][0] == $date) {
+                if ($sessionHistory[$x][1] == $descQ) {
+                    err("editPrac matching session history", 'Description is the same for the specified date', 'edit.php?select=' . $sessionOrPrac);
+                }
+            }
+        }
         $dao->updateSession($descQ, $date);
     } else if ($dao->saveSession($email, $date, $descQ) != 2) {
         err("editSession parameter is too long", 'email or description is too long', 'edit.php?select=' . $sessionOrPrac);
@@ -114,6 +122,10 @@ if ($sessionOrPrac == "session") {
 } else {
     /* Insert practice */
     if ($dao->checkPractice($email) == 1) {
+        $p = $dao->getPractice($email);
+        if ($p[0][0] == $desQ && $p[0][1] == $wrongAns1 && $p[0][2] == $wrongAns2 && $p[0][3] == $rightAns) {
+            err("editPrac question is the same", 'Everything matches your current question/options', 'edit.php?select=' . $sessionOrPrac);
+        }
         $pID = $dao->getPID($email);
         $dao->savePractice($email, $descQ, $wrongAns1, $wrongAns2, $rightAns);
         $dao->deletePractice($pID);

@@ -34,24 +34,29 @@ if (isset($_SESSION['select'])) {
     $dao = new Dao();
     if ($type != 'tutor') {
       $practice = $dao->getPractice($email);
-      $rightAns = $practice[0][3];
-      $rand1 = rand(1, 3);
-      $rand2 = rand(1, 3);
-      while ($rand2 === $rand1) {
-        $rand2 = rand(1, 3);
-      }
-      $remNum = 6 - $rand1 - $rand2;
-      if ($rightAns == $practice[0][$rand1]) {
-        $rightNum = $rand1;
-      } elseif ($rightAns == $practice[0][$rand2]) {
-        $rightNum = $rand2;
+      $studentNoP = false;
+      if (count($practice[0][3]) == 0) {
+        $studentNoP = true;
       } else {
-        $rightNum = $remNum;
-      }
-      $_POST['rightNum'] = $rightNum;
+        $rightAns = $practice[0][3];
+        $rand1 = rand(1, 3);
+        $rand2 = rand(1, 3);
+        while ($rand2 === $rand1) {
+          $rand2 = rand(1, 3);
+        }
+        $remNum = 6 - $rand1 - $rand2;
+        if ($rightAns == $practice[0][$rand1]) {
+          $rightNum = $rand1;
+        } elseif ($rightAns == $practice[0][$rand2]) {
+          $rightNum = $rand2;
+        } else {
+          $rightNum = $remNum;
+        }
+        $_POST['rightNum'] = $rightNum;
 
-      echo table::renderTableTopP($email);
-      echo table::renderPracticeTableStudent($email, $practice, $practice[0][$rand1], $practice[0][$rand2], $practice[0][$remNum]);
+        echo table::renderTableTopP($email);
+        echo table::renderPracticeTableStudent($email, $practice, $practice[0][$rand1], $practice[0][$rand2], $practice[0][$remNum]);
+      }
     } else {
       $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
       if (count($emails) == 0) {
@@ -69,13 +74,13 @@ if (isset($_SESSION['select'])) {
     }
     //find random vals for the checkbox ids
     if (!$noStudentsT) {
-      if ($type != 'tutor') { ?>
+      if ($type != 'tutor' && !$studentNoP) { ?>
         <form method="POST" action="practiceHandler.php">
           <tr>
             <td></td>
-            <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand1] ?>"<?php echo findRadioBtnSelect($practice[0][$rand1]) ?>></td>
-            <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand2] ?>"<?php echo findRadioBtnSelect($practice[0][$rand2]) ?>></td>
-            <td><input type="radio" name="opt" value="<?php echo $practice[0][$remNum] ?>"<?php echo findRadioBtnSelect($practice[0][$remNum]) ?>></td>
+            <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand1] ?>" <?php echo findRadioBtnSelect($practice[0][$rand1]) ?>></td>
+            <td><input type="radio" name="opt" value="<?php echo $practice[0][$rand2] ?>" <?php echo findRadioBtnSelect($practice[0][$rand2]) ?>></td>
+            <td><input type="radio" name="opt" value="<?php echo $practice[0][$remNum] ?>" <?php echo findRadioBtnSelect($practice[0][$remNum]) ?>></td>
           </tr>
           </table>
           <p>

@@ -438,3 +438,6 @@ Email already exists, please try another<br />
 1680442792 - DEBUG --> curr email: student1@gmail.com 
 1680442792 - DEBUG --> curr email: student4tutor1@gmail.com 
 1680452722 - DEBUG --> eH desQ: How can I become a better student? w1: studying w2: working hard r: threw a pizza party 
+1680460379 - DEBUG --> curr email:  mCount: 0 
+1680460426 - DEBUG --> curr email: examplestudent2@gmail.com mCount: 0 
+1680460460 - DEBUG --> curr email: examplestudent@gmail.com mCount: 3 

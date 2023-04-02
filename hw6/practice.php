@@ -88,13 +88,13 @@ if (isset($_SESSION['select'])) {
               <input type="submit" value="Submit Your Answer!">
             </p>
           </form>
-        <?php } else { ?>
-          </table>
-          <p id="smallerP">
-            Edit your student's practice questions <a href=edit.php>here</a>
-          </p>
         <?php }
-      }
+      } else { ?>
+        </table>
+        <p id="smallerP">
+          Edit your student's practice questions <a href=edit.php>here</a>
+        </p>
+      <?php }
     } ?>
   </div>
   <?php include("footer.php"); ?>

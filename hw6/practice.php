@@ -35,7 +35,7 @@ if (isset($_SESSION['select'])) {
     if ($type != 'tutor') {
       $practice = $dao->getPractice($email);
       $studentNoP = false;
-      if (count($practice[0]) == 0) {
+      if (count($practice) == 0) {
         $studentNoP = true;
       } else {
         $rightAns = $practice[0][3];

@@ -388,12 +388,12 @@ class Dao
 
     public function deletePractice($id)
     {
-        global $logger;
+        // global $logger;
         $conn = $this->getConnection();
         $deleteQuery =
             "DELETE FROM practice
             where id=:id";
-        $logger->LogDebug("dao dP dQ: {$deleteQuery}");
+        // $logger->LogDebug("dao dP dQ: {$deleteQuery}");
         $q = $conn->prepare($deleteQuery);
         $q->bindParam(":id", $id);
         $q->execute();

@@ -44,7 +44,7 @@ if (isset($_SESSION['select'])) {
                     $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
                     $newestSesh = date('d-m-Y', 0);
                     foreach ($emails as $e) {
-                        $logger->LogDebug("curr email: {$e[0]}");
+                        // $logger->LogDebug("curr email: {$e[0]}");
                         $currSesh = $dao->getLastSession($e[0]);
                         if ($currSesh > $newestSesh) {
                             $newestSesh = $currSesh;

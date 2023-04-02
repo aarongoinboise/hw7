@@ -85,7 +85,11 @@ if (isset($_SESSION['select'])) {
             </p>
             <p>
                 <?php
+                if ($type == 'tutor') {
                 $nextSesh = $dao->getNextSession($dao->getTutorNumber($email));
+                } else {
+                    $nextSesh = $dao->getNextSession($dao->getTutorNumber($dao->getTutorEmailFromStudent($email)));
+                }
                 echo 'Next Tutor Session: ';
                 echo (($nextSesh != '') ? $nextSesh : 'TBD');
                 echo nl2br("\r\n");

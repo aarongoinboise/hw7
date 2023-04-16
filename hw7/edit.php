@@ -54,13 +54,14 @@ if (isset($_SESSION['mType'])) {
                         <p>
                             <?php if ($type == 'tutor') {
                                 ?> <label for="email">Select the student email:</label>
-                                <input list="emails" name="email" id="email">
-                                <datalist id="emails">
+                                <select id="email">
                                     <option value="test"></option>
-                                    <?php foreach ($emails as $e) { ?>
+                                    <?php 
+                                    $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
+                                    foreach ($emails as $e) { ?>
                                         <option value=<?php echo $e[0]?>></option>
                                     <?php } ?>
-                                </datalist>
+                                    </select>
                             <?php } ?>
                         </p>
                         <?php $labels;

@@ -103,7 +103,7 @@ if (isset($_SESSION['select'])) {
                 ?>
                 <p>
                 <form method="POST" action="nextDateHandler.php">
-                    To set your next session date so students can see, use the calendar below:
+                    <label for="date">To set your next session date so students can see, use the calendar below:</label>
                     <p>
                         <input type="date" name="date" min="<?php echo $today ?>" class="<?php echo classSet('date') ?>"
                             value="<?php echo seshSet('date') ?>"><?php echo dot('date') ?>
@@ -114,7 +114,7 @@ if (isset($_SESSION['select'])) {
             <?php } ?>
             <p>
             <form action="homeMHandler.php">
-                To logout and return to the login page, click <input type="submit" value="here">
+                <label for="submit">To logout and return to the login page, click</label> <input type="submit" name="submit" value="here">
             </form>
             Or, you can simply visit a non-member page to logout.
             </p>

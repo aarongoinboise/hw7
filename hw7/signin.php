@@ -36,10 +36,11 @@ $_POST['menutype'] = 'nonMemberMenuBar';
     ?>
     <form method="POST" action="signinHandler.php">
       <p>
-        Email:
+        <label for="email">Email:</label>
         <input class="<?php echo classSet('email') ?>" type="text" name="email" value="<?php echo seshSet('email') ?>"
-          placeholder="ex: email@provider.net"><?php echo dot('email') ?>&nbsp;&nbsp;
-        Password:
+          placeholder="ex: email@provider.net"><?php echo dot('email') ?>
+          &nbsp;&nbsp;
+        <label for="password">Password:</label>
         <input class="<?php echo classSet('password') ?>" type="password" name="password"
           value="<?php echo seshSet('password') ?>" placeholder="password"><?php echo dot('password') ?>
       </p>
@@ -47,9 +48,9 @@ $_POST['menutype'] = 'nonMemberMenuBar';
       <div><input type="submit" value="Login!"></div>
       </p>
       <p>
-        <a href=forgotPassword.php>Forgot Password?</a>
+        <a href=signin/forgotPassword.php>Forgot Password?</a>
         &nbsp;&nbsp;
-        <a href=resetPassword.php>Reset Password</a>
+        <a href=signin/resetPassword.php>Reset Password</a>
       </p>
     </form>
     <?php include("footer.php"); ?>

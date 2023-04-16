@@ -1,9 +1,9 @@
 <?php
 session_start();
 sleep(0.3);
-include("titlefab.php");
-include("h1s.php");
-require_once("saveFormTxt.php");
+include("titlefabS.php");
+include("h1sS.php");
+require_once("../saveFormTxt.php");
 if (isset($_SESSION['select'])) {
   unset($_SESSION['select']);
 }
@@ -21,22 +21,26 @@ if (isset($_SESSION['mType'])) {
 <h1>Forgot Password</h1>
 </div>
 <?php
-$_POST['selected'] = 'signin';
+$_POST['selected'] = '../signin';
 $_POST['menutype'] = 'nonMemberMenuBar';
+$_POST['subM'] = '->&#129335;Pass';
+$POST['subphp'] = 'forgotPassword';
 ?>
 <div id="menuBarFourCol" class="menuBar">
   <?php
-  include("menu.php");
+  include("menuS.php");
   unset($_POST['selected']);
   unset($_POST['menutype']);
+  unset($_POST['subM']);
+  unset($POST['subphp']);
   ?>
 
   <div id="signInBackgroundPic" class="backgroundPicFormat">
-    <?php include("formM.php");
+    <?php include("../formM.php");
     ?>
     <form method="POST" action="forgotPasswordHandler.php">
       <p>
-        Enter the email you signed up with:
+        <label for="email">Enter the email you signed up with:</label>
         <input class="<?php echo classSet('email') ?>" type="text" name="email" value="<?php echo seshSet('email') ?>"
           placeholder="ex: email@provider.net"><?php echo dot('email') ?>
       </p>
@@ -44,12 +48,12 @@ $_POST['menutype'] = 'nonMemberMenuBar';
       <div><input type="submit" value="Give me a hint!"></div>
       </p>
       <p>
-        <a href=signin.php>Sign In</a>
+        <a href=../signin.php>Sign In</a>
         &nbsp;&nbsp;
         <a href=resetPassword.php>Reset Password</a>
       </p>
     </form>
-    <?php include("footer.php"); ?>
+    <?php include("../footer.php"); ?>
   </div>
   </body>
 

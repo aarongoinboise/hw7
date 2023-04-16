@@ -8,16 +8,22 @@ class Dao
 {
 
     private $host = "us-cdbr-east-06.cleardb.net";
-    // private $port = "8889";
     private $db = "heroku_7b81c31dab7b85a";
     private $user = "bb4d5dc1270568";
     private $pass = "43e816c0";
+    // private $host = "127.0.0.1";
+    // private $port = "8889";
+    // private $db = "aarongoin";
+    // private $user = "aarongoin";
+    // private $pass = "Pizzaguy1!";
 
     public function getConnection()
     {
         return new PDO(
             "mysql:host={$this->host};dbname={$this->db}", $this->user,
             $this->pass
+            // "mysql:host={$this->host};port={$this->port};dbname={$this->db}", $this->user,
+            // $this->pass
         );
     }
 
@@ -216,10 +222,6 @@ class Dao
         $q->bindParam(":email", $email);
         $q->execute();
         $rCnt = $q->rowCount();
-
-        // global $logger;
-        // $logger->LogDebug("email:{$email} rowCnt: {$rCnt}");
-
         return $rCnt;
     }
 

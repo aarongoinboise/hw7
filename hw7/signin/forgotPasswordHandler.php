@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once 'Dao.php';
-require_once 'KLogger.php';
-require_once 'saveFormTxt.php';
+require_once '../Dao.php';
+require_once '../KLogger.php';
+require_once '../saveFormTxt.php';
 $logger = new KLogger("log.txt", KLogger::DEBUG);
 $_SESSION['red'] = $_POST;
 $_SESSION['inputs'] = $_POST;
@@ -14,7 +14,7 @@ if ($email != '') {
 }
 
 if ($email == '') {
-    err("Email is blank", "Please provide your email address", 'forgotPassword.php');
+    err("Email is blank", "Email address is not provided", 'forgotPassword.php');
 }
 
 /* email regex */

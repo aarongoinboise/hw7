@@ -38,7 +38,7 @@ if (isset($_SESSION['mType'])) {
         if (!$noStudentsT) { ?>
             <div id="formText">
                 <form method="GET" id="formType">
-                    Would you like to add/edit a session or a pratice event?
+                    <label for="select">Would you like to add/edit a session or a pratice event?</label>
                     <select required form="formType" name="select" onchange="this.form.submit()">
                         <option value="" hidden>Type of Edit</option>
                         <option value="session" <?php echo findSelectedOptE('session') ?>>Session</option>
@@ -53,7 +53,7 @@ if (isset($_SESSION['mType'])) {
                     <form method="POST" name="opts" action="editHandler.php">
                         <p>
                             <?php if ($type == 'tutor') {
-                                ?> Enter the student email:
+                                ?> <label for="email">Enter the student email:</label>
                                 <input class="<?php echo classSet('email') ?>" type="text" name="email"
                                     value="<?php echo seshSet('email') ?>" placeholder="ex: email@provider.net"><?php echo dot('email') ?>
                             <?php } ?>
@@ -69,30 +69,32 @@ if (isset($_SESSION['mType'])) {
                             $placeholder = "ex: What is 2+2?";
                         } ?>
                         <p>
-                            Enter a
-                            <?php echo $labels[0] ?>:
+                            <label for="descQ">Enter a
+                                <?php echo $labels[0] ?>:
+                            </label>
                             <input class="<?php echo classSet('descQ') ?>" type="text" name="descQ"
                                 value="<?php echo seshSet('descQ') ?>" placeholder="<?php echo $placeholder ?>"><?php echo dot('descQ') ?>
                         </p>
                         <p>
-                            Enter
-                            <?php echo $labels[1] ?>:
+                            <label for="date">Enter
+                                <?php echo $labels[1] ?>:
+                            </label>
                             <?php if ($sessionOrPrac == "session") { ?>
                                 <input type="date" name="date" min="2023-01-01" class="<?php echo classSet('date') ?>"
                                     value="<?php echo seshSet('date') ?>"><?php echo dot('date') ?>
                             <?php } else { ?>
                             <p>
-                                Wrong Answer 1:
+                                <label for="wrongAns1">Wrong Answer 1:</label>
                                 <input class="<?php echo classSet('wrongAns1') ?>" type="text" name="wrongAns1"
                                     value="<?php echo seshSet('wrongAns1') ?>" placeholder="ex for 2+2: 2"><?php echo dot('wrongAns1') ?>
                             </p>
                             <p>
-                                Wrong Answer 2:
-                                <input class="<?php echo classSet('wrongAns2') ?>" type="text" name="wrongAns2"
-                                    value="<?php echo seshSet('wrongAns2') ?>" placeholder="ex for 2+2: 3"><?php echo dot('wrongAns2') ?>
+                                <label for="wrongAns2">Wrong Answer 2:</label>
+                                    <input class="<?php echo classSet('wrongAns2') ?>" type="text" name="wrongAns2"
+                                        value="<?php echo seshSet('wrongAns2') ?>" placeholder="ex for 2+2: 3"><?php echo dot('wrongAns2') ?>
                             </p>
 
-                            Right Answer:
+                            <label for="rightAns">Right Answer:</label>
                             <input class="<?php echo classSet('rightAns') ?>" type="text" name="rightAns"
                                 value="<?php echo seshSet('rightAns') ?>" placeholder="ex for 2+2: 4"><?php echo dot('rightAns') ?>
 

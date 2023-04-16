@@ -44,7 +44,7 @@ $type == 'tutor' ? $h1 .= '/Delete Messages' : $h1 .= ' Messages';
           if (!$noStudentsT) {
             ?>
             <p>
-              Write the student email this message is going to:
+              <label for="sEmail">Write the student email this message is going to:</label>
               <input class="<?php echo classSet('sEmail') ?>" type="text" name="sEmail"
                 value="<?php echo seshSet('sEmail') ?>" placeholder="ex: email@provider.net"><?php echo dot('sEmail') ?>
             </p>
@@ -53,8 +53,9 @@ $type == 'tutor' ? $h1 .= '/Delete Messages' : $h1 .= ' Messages';
         }
         if (!$noStudentsT) {
           echo "<p>";
-          $labelM = "Write a brief message to send to ";
-          echo $type == 'tutor' ? $labelM .= 'a student:' : $labelM .= 'your tutor: ';
+          $labelM = "<label for=\"message\">Write a brief message to send to ";
+          echo $type == 'tutor' ? $labelM .= 'a student:' : $labelM .= 'your tutor:';
+          echo "</label>";
           ?>
           <input class="<?php echo classSet('message') ?>" type="text" name="message"
             value="<?php echo seshSet('message') ?>" placeholder="ex: great session!"><?php echo dot('message') ?>

@@ -30,23 +30,27 @@ if ($type == 'tutor') {
         err("sEmail is blank", "Please provide a student email", 'message.php');
     }
     if ($message == '') {
+        $regex = "/.+@.+\..+/";
+        if (preg_match($regex, $sEmail) != 1) {
+            $_SESSION['red']['sEmail'] = 'set';
+            err("message is blank", "Email does not exist" . nl2br("\n") . "Please provide a message", 'message.php');
+        }
         err("message is blank", "Please provide a message", 'message.php');
     }
-    /* email regex */
-    $regex = "/.+@.+\..+/";
-    if (preg_match($regex, $sEmail) != 1) {
-        $_SESSION['red']['sEmail'] = 'set';
-        err("Email doesn't fit pattern", "Email does not exist", 'message.php');
-    }
+
     /* Check if student belongs to tutor*/
     if ($dao->checkStudentBelongsToTutor($sEmail, $email) != 1) {
         $_SESSION['red']['sEmail'] = 'set';
+        $regex = "/.+@.+\..+/";
+        if (preg_match($regex, $sEmail) != 1) {
+            err("message is blank", "Email does not exist" . nl2br("\n") . "Student email isn't registered with you", 'message.php');
+        }
         err($email . " and " . $tEmail . " are not related", 'Student email isn\'t registered with you', 'message.php');
     }
     unset($_SESSION['red']['email']);
     $email = $sEmail;
 }
-/* Student */
+/* Student messages */
 if ($message == '') {
     err("message is blank", "Please provide a message", 'message.php');
 }

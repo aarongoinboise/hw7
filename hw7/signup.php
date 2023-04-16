@@ -37,30 +37,30 @@ $_POST['menutype'] = 'nonMemberMenuBar';
     ?>
     <div id="formText">
 
-      <form method="POST" action="signupHandler.php">
+      <form method="POST" name="signup" action="signupHandler.php">
         <p>
-          Please enter a valid email address (students: only share this with your tutor):
+          <label for="email">Please enter a valid email address (students: only share this with your tutor):</label>
           <input class="<?php echo classSet('email') ?>" type="text" name="email" value="<?php echo seshSet('email') ?>"
             placeholder="ex: email@provider.net"><?php echo dot('email') ?>
         </p>
         <p>
-          Please enter a secure password (don't share this with anyone):
-          <input class="<?php echo classSet('password') ?>" type="password" name="password"
+          <label for="password">Please enter a secure password (don't share this with anyone):</label>
+          <input class="<?php echo classSet('password') ?>" type="password" name="password" id="password"
             value="<?php echo seshSet('password') ?>" placeholder="password"><?php echo dot('password') ?>
         </p>
         <p>
-          Please reenter the same password you entered above:
+          <label for="reenterPassword">Please reenter the same password you entered above:</label>
           <input class="<?php echo classSet('reenterPassword') ?>" type="password" name="reenterPassword"
             value="<?php echo seshSet('reenterPassword') ?>" placeholder="Reenter Password"><?php echo dot('reenterPassword') ?>
         </p>
         <p>
-          Enter a question or hint whose answer is your password (don't share this with anyone):
+        <label for="hint">Enter a question or hint whose answer is your password (don't share this with anyone):</label>
           <input class="<?php echo classSet('hint') ?>" type="text" name="hint" value="<?php echo seshSet('hint') ?>"
             placeholder="ex: nickname"><?php echo dot('hint') ?>
         </p>
         <div>
-          If you are a tutor, simply write "tutor".
-          <br>Otherwise, please provide your tutor's ID number:
+          <label for="tutor">If you are a tutor, simply write "tutor".
+          <br>Otherwise, please provide your tutor's ID number:</label>
           <input class="<?php echo classSet('tutor') ?>" type="text" name="tutor" value="<?php echo seshSet('tutor') ?>"
             placeholder="tutor or tutor's ID"><?php echo dot('tutor') ?>
         </div>

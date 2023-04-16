@@ -1,9 +1,9 @@
 <?php
 session_start();
 sleep(0.3);
-include("titlefab.php");
-include("h1s.php");
-require_once("saveFormTxt.php");
+include("titlefabS.php");
+include("h1sS.php");
+require_once("../saveFormTxt.php");
 if (isset($_SESSION['select'])) {
   unset($_SESSION['select']);
 }
@@ -21,43 +21,47 @@ if (isset($_SESSION['mType'])) {
 <h1>Reset Password</h1>
 </div>
 <?php
-$_POST['selected'] = 'signin';
+$_POST['selected'] = '../signin';
 $_POST['menutype'] = 'nonMemberMenuBar';
+$_POST['subM'] = '->&#9194;Pass';
+$POST['subphp'] = 'resetPassword';
 ?>
 <div id="menuBarFourCol" class="menuBar">
   <?php
-  include("menu.php");
+  include("menuS.php");
   unset($_POST['selected']);
   unset($_POST['menutype']);
+  unset($_POST['subM']);
+  unset($POST['subphp']);
   ?>
 
   <div id="signInBackgroundPic" class="backgroundPicFormat">
-    <?php include("formM.php");
+    <?php include("../formM.php");
     ?>
 
-    <form method="POST" action="resetPasswordHandler.php">
+    <form method="POST" name="resetPassword" action="resetPasswordHandler.php">
       <p>
-        Your email
+        <label for="email">Your email</label>
         <input class="<?php echo classSet('email') ?>" type="text" name="email" value="<?php echo seshSet('email') ?>"
           placeholder="ex: email@provider.net"><?php echo dot('email') ?>
       </p>
       <p>
-        Current Password
+        <label for="password">Current Password</label>
         <input class="<?php echo classSet('password') ?>" type="password" name="password"
           value="<?php echo seshSet('password') ?>" placeholder="password"><?php echo dot('password') ?>
       </p>
       <p>
-        New Password
-        <input class="<?php echo classSet('newPassword') ?>" type="password" name="newPassword"
+        <label for="newPassword">New Password</label>
+        <input class="<?php echo classSet('newPassword') ?>" type="password" name="newPassword" id="newPassword"
           value="<?php echo seshSet('newPassword') ?>" placeholder="new password"><?php echo dot('newPassword') ?>
       </p>
       <p>
-        Reenter New Password
+        <label for="reenterNewPassword">Reenter New Password</label>
         <input class="<?php echo classSet('reenterNewPassword') ?>" type="password" name="reenterNewPassword"
           value="<?php echo seshSet('reenterNewPassword') ?>" placeholder="reenter new password"><?php echo dot('reenterNewPassword') ?>
       </p>
       <p>
-        Enter a new hint (to remind yourself of the password)
+        <label for="hint">Enter a new hint (to remind yourself of the password)</label>
         <input class="<?php echo classSet('hint') ?>" type="text" name="hint"
           value="<?php echo seshSet('hint') ?>" placeholder="ex: favorite number"><?php echo dot('hint') ?>
       </p>
@@ -65,11 +69,11 @@ $_POST['menutype'] = 'nonMemberMenuBar';
       <div><input type="submit" value="Reset My Password!"></div>
     </form>
     <div>
-      <br><a href=signin.php>Sign In</a>
+      <br><a href=../signin.php>Sign In</a>
       &nbsp;&nbsp;
       <a href=forgotPassword.php>Forgot Password</a><br>
     </div>
-    <?php include("footer.php"); ?>
+    <?php include("../footer.php"); ?>
   </div>
   </body>
 

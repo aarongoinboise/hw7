@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once 'Dao.php';
-require_once 'KLogger.php';
-require_once 'saveFormTxt.php';
+require_once '../Dao.php';
+require_once '../KLogger.php';
+require_once '../saveFormTxt.php';
 $logger = new KLogger("log.txt", KLogger::DEBUG);
 $_SESSION['red'] = $_POST;
 $_SESSION['inputs'] = $_POST;
@@ -73,8 +73,8 @@ for ($i = 0; $i < 4; $i++) {
     $errS .= $errmessages[$i] . nl2br("\n");
   }
 }
-$sLen = strlen($errS);
-if (strlen($errS) > 0) {
+
+if ($errM != '') {
   err($errS, $errS, 'resetPassword.php');
 }
 

@@ -441,3 +441,10 @@ Email already exists, please try another<br />
 1680460379 - DEBUG --> curr email:  mCount: 0 
 1680460426 - DEBUG --> curr email: examplestudent2@gmail.com mCount: 0 
 1680460460 - DEBUG --> curr email: examplestudent@gmail.com mCount: 3 
+1681342453 - DEBUG --> One or more fields are blank 
+1681342868 - DEBUG --> One or more fields are blank 
+1681343020 - DEBUG --> Email doesn't fit pattern 
+1681343052 - DEBUG --> Email doesn't fit pattern 
+1681343186 - DEBUG --> dumbtutor@gmail.com already exists as an email 
+1681384840 - DEBUG --> Nonexistant tutor number 
+1681385461 - DEBUG --> One or more fields are blank 

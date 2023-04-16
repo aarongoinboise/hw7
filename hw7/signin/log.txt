@@ -1,0 +1,26 @@
+1681340459 - DEBUG --> One or more fields are blank 
+1681340485 - DEBUG --> One or more fields are blank 
+1681340497 - DEBUG --> One or more fields are blank 
+1681340502 - DEBUG --> One or more fields are blank 
+1681340639 - DEBUG --> Email doesn't fit pattern or does not exist 
+1681343478 - DEBUG --> One or more fields are blank 
+1681343486 - DEBUG --> One or more fields are blank 
+1681343499 - DEBUG --> Email doesn't fit pattern 
+1681343513 - DEBUG --> New passwords don't match 
+1681343520 - DEBUG --> Email doesn't fit pattern 
+1681343577 - DEBUG --> Email and/or password are not correct<br />
+New passwords don't match<br />
+ 
+1681343588 - DEBUG --> One or more fields are blank 
+1681343605 - DEBUG --> Email does not exist<br />
+Email and/or password are not correct<br />
+ 
+1681343630 - DEBUG --> Email does not exist<br />
+Email and/or password are not correct<br />
+New passwords don't match<br />
+ 
+1681343640 - DEBUG --> Email does not exist<br />
+Email and/or password are not correct<br />
+New password is the same as current password<br />
+New passwords don't match<br />
+ 

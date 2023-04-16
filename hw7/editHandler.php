@@ -45,7 +45,7 @@ if ($type == 'tutor') {
                 err("Email doesn't fit pattern and date and blank", "Please fill out everything", 'edit.php?select=' . $sessionOrPrac);
             } else {
                 if (($descQ == '' || $date == '') && $email != '') {
-                    err("Email doesn't fit pattern and date", "Please fill out everything/email does not exist", 'edit.php?select=' . $sessionOrPrac);
+                    err("Email doesn't fit pattern and date", "Please fill out everything" . nl2br("\n") . "Email does not exist", 'edit.php?select=' . $sessionOrPrac);
                 } else {
                     err("Email doesn't fit pattern and date", "Email does not exist", 'edit.php?select=' . $sessionOrPrac);
                 }
@@ -70,8 +70,8 @@ if ($type == 'tutor') {
     if ($dao->checkStudentBelongsToTutor($email, $tEmail) != 1) {
         // unset($_SESSION['red']);
         $_SESSION['red']['email'] = 'set';
-        if (($descQ == '' || $date == '')) {
-            err($email . " and " . $tEmail . " are not related", 'Please fill out everything/Student email isn\'t registered with you', 'edit.php?select=' . $sessionOrPrac);
+        if (($sessionOrPrac == "session" && ($descQ == '' || $date == '')) || $sessionOrPrac == "practice" && $descQ == '' || $wrongAns1 == '' || $wrongAns2 == '' || $rightAns == '') {
+            err($email . " and " . $tEmail . " are not related", "Please fill out everything" . nl2br("\n") . "Student email isn't registered with you", 'edit.php?select=' . $sessionOrPrac);
         } else {
             err($email . " and " . $tEmail . " are not related", 'Student email isn\'t registered with you', 'edit.php?select=' . $sessionOrPrac);
         }

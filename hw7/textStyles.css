@@ -1,0 +1,85 @@
+h2 {
+  font-size: 58px;
+}
+
+#p {
+  font-size: 54px;
+}
+
+#mediumP {
+  font-size: 42px;
+}
+
+#smallerP {
+  font-size: 31px;
+}
+
+#varyP {
+  font-size: 2.2vw;
+}
+
+#underline {
+  text-decoration: underline;
+}
+
+#sTHomeText {
+  font-size: 27px;
+}
+
+#formText {
+  margin-left: 15px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-size: 26px;
+}
+
+.messageParam {
+  width: 40%;
+  padding: 10 10;
+  margin-bottom: 10px;
+  color: white;
+  font-family: 'Sunshiney';
+  font-size: 80%;
+  text-align: left;
+}
+
+#errMessage {
+  background-color: red;
+}
+
+#neutralMessage {
+  background-color: gray;
+}
+
+#posMessage {
+  background-color: green;
+}
+
+.textErr {
+  color: red;
+}
+
+form .error {
+  color: red;
+}
+
+.close {
+  font-size: 15px;
+  cursor:pointer;
+  text-align:right;
+  position:relative;
+  float:right;
+}
+
+.close:hover {
+  text-decoration:underline;
+}
+
+#footer {
+  font-family: Helvetica;
+  color: #333333;
+  white-space: nowrap;
+  font-size: 1.2vw;
+  text-align: left;
+  margin-top: 5px;
+}

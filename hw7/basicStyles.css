@@ -2,7 +2,7 @@ body {
   color: 5B3A00;
   text-align: center;
   background-color: #fffff1;
-  font-family: comic sans ms;
+  font-family: 'Sunshiney';
   overflow-x: hidden;
   overflow-y: hidden;
   height: 100%;
@@ -63,13 +63,4 @@ h1 {
 
 #menuBarItemSelected {
   background-color: #dffcff;
-}
-
-#footer {
-  font-family: 'Times New Roman', Times, serif;
-  color: #333333;
-  white-space: nowrap;
-  font-size: 1.3vw;
-  text-align: left;
-  margin-top: 5px;
 }

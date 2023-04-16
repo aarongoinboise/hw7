@@ -14,24 +14,32 @@ $password = $_POST['password'];
 if ($password != '') {
     unset($_SESSION['red']['password']);
 }
-
+$errM = '';
 if ($email == '' || $password == '') {
-    err("One or more fields are blank", "Please make sure all options are filled out before signing up", 'signin.php');
+    $errM .= 'Please make sure all options are filled out before signing up' . nl2br("\n");
 }
 
 /* email regex */
 $regex = "/.+@.+\..+/";
 if (preg_match($regex, $email) != 1) {
     $_SESSION['red']['email'] = 'set';
-    err("Email doesn't fit pattern", "Email does not exist", 'signin.php');
+    $errM .= 'Email does not exist' . nl2br("\n");
 }
 
 $dao = new Dao();
 
-if ($dao->checkPassword($email, $password) != 1) {
+if ($dao->checkUser($email) != 1) {
     $_SESSION['red']['email'] = 'set';
+    $errM .= 'Email is not correct' . nl2br("\n");
+}
+$salt = "7Zikzs1jt9";
+if ($dao->checkPassword($email, hash("sha256", $password . $salt)) != 1) {
     $_SESSION['red']['password'] = 'set';
-    err($email . " does not exist", 'Email and/or password are not correct', 'signin.php');
+    $errM .= 'Password is not correct' . nl2br("\n");
+}
+
+if ($errM != '') {
+    err('login info wrong', $errM, 'signin.php');
 }
 
 $isTutor;

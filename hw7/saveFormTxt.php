@@ -38,6 +38,14 @@ function findSelectedOptE($opt)
     return '';
 }
 
+function findSelectedOptSE($opt)
+{
+    if (($_POST['email'] == $opt)) {
+        return 'selected';
+    }
+    return '';
+}
+
 function dot($opt)
 {
     if (isset($_SESSION['red'][$opt])) {

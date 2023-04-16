@@ -40,7 +40,7 @@ function findSelectedOptE($opt)
 
 function findSelectedOptSE($opt)
 {
-    if (($_POST['email'] == $opt)) {
+    if (($_SESSION['email'] == $opt)) {
         return 'selected';
     }
     return '';

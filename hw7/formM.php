@@ -8,7 +8,7 @@ if (isset($_SESSION['message'])) {
   } else {
     $color = 'posMessage';
   }
-  echo "<div id='{$color}' class='messageParam'>" . $_SESSION['message'] . "<span class='close'>&#9447;</span>" . "</div>";
+  echo "<div id='{$color}' class='messageParam'>" . "<span class='close'>&#9447;</span>" . $_SESSION['message'] . "</div>";
   unset($_SESSION['message']);
 } else {
   unset($_SESSION['inputs']);

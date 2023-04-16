@@ -54,8 +54,8 @@ if (isset($_SESSION['mType'])) {
                         <p>
                             <?php if ($type == 'tutor') {
                                 ?> <label for="email">Select the student email:</label>
-                                <input list="email" name="email" id="email">
-                                <datalist id="email">
+                                <input list="emails" name="email" id="email">
+                                <datalist id="emails">
                                     <option value="test"></option>
                                     <?php foreach ($emails as $e) { ?>
                                         <option value=<?php echo $e[0]?>></option>

@@ -54,14 +54,13 @@ if (isset($_SESSION['mType'])) {
                         <p>
                             <?php if ($type == 'tutor') {
                                 ?> <label for="email">Select the student email:</label>
-                                <select id="email">
-                                <option value="" hidden>Student Email</option>
-                                    <?php 
+                                <select name="email" id="email">
+                                    <?php
                                     $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
                                     foreach ($emails as $e) { ?>
-                                        <option value=<?php echo $e[0] . findSelectedOptSE($e[0])?>><?php echo $e[0]?></option>
+                                        <option value=<?php echo $e[0] . findSelectedOptSE($e[0]) ?>><?php echo $e[0] ?></option>
                                     <?php } ?>
-                                    </select>
+                                </select>
                             <?php } ?>
                         </p>
                         <?php $labels;
@@ -96,8 +95,8 @@ if (isset($_SESSION['mType'])) {
                             </p>
                             <p>
                                 <label for="wrongAns2">Wrong Answer 2:</label>
-                                    <input class="<?php echo classSet('wrongAns2') ?>" type="text" name="wrongAns2"
-                                        value="<?php echo seshSet('wrongAns2') ?>" placeholder="ex for 2+2: 3"><?php echo dot('wrongAns2') ?>
+                                <input class="<?php echo classSet('wrongAns2') ?>" type="text" name="wrongAns2"
+                                    value="<?php echo seshSet('wrongAns2') ?>" placeholder="ex for 2+2: 3"><?php echo dot('wrongAns2') ?>
                             </p>
 
                             <label for="rightAns">Right Answer:</label>

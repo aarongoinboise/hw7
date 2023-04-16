@@ -35,6 +35,7 @@ if ($date != '') {
 
 if ($type == 'tutor') {
     $email = $_POST['email'];
+    $_SESSION['emailS'] = $email;
     /* email regex */
     $regex = "/.+@.+\..+/";
     if (preg_match($regex, $email) != 1) {

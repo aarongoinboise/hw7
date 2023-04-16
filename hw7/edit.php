@@ -55,11 +55,11 @@ if (isset($_SESSION['mType'])) {
                             <?php if ($type == 'tutor') {
                                 ?> <label for="email">Select the student email:</label>
                                 <select id="email">
-                                    <option value="test"></option>
+                                    <option value="test">test</option>
                                     <?php 
                                     $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
                                     foreach ($emails as $e) { ?>
-                                        <option value=<?php echo $e[0]?>></option>
+                                        <option value=<?php echo $e[0]?>><?php echo $e[0]?></option>
                                     <?php } ?>
                                     </select>
                             <?php } ?>

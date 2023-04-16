@@ -85,5 +85,5 @@ if ($dao->resetPassword($email, hash("sha256", $newPassword . $salt)) === 1) {
     header("Location: resetPassword.php");
     exit();
 } else {
-    err("Email or password is too long", 'Email or password is too long', 'resetPassword.php');
+    err("Email or password is too long", 'New password or hint are too long', 'resetPassword.php');
 }

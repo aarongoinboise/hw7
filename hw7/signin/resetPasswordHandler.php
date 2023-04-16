@@ -79,7 +79,7 @@ if ($errM != '') {
 }
 
 /* Final redirect after insertions */
-if ($dao->resetPassword($email, $newPassword) === 1) {
+if ($dao->resetPassword($email, hash("sha256", $newPassword . $salt)) === 1) {
     $dao->resetHint($email, $hint);
     $_SESSION['message'] = 'Success! You have changed your password';
     header("Location: resetPassword.php");

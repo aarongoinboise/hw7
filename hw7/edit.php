@@ -53,9 +53,13 @@ if (isset($_SESSION['mType'])) {
                     <form method="POST" name="opts" action="editHandler.php">
                         <p>
                             <?php if ($type == 'tutor') {
-                                ?> <label for="email">Enter the student email:</label>
-                                <input class="<?php echo classSet('email') ?>" type="text" name="email"
-                                    value="<?php echo seshSet('email') ?>" placeholder="ex: email@provider.net"><?php echo dot('email') ?>
+                                ?> <label for="email">Select the student email:</label>
+                                <input list="email" name="email" id="email">
+                                <datalist id="email">
+                                    <?php foreach ($emails as $e) { ?>
+                                        <option value=<?php echo $e[0]?>></option>
+                                    <?php } ?>
+                                </datalist>
                             <?php } ?>
                         </p>
                         <?php $labels;

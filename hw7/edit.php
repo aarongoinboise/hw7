@@ -60,7 +60,7 @@ if (isset($_SESSION['mType'])) {
                                     <?php
                                     $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
                                     foreach ($emails as $e) { ?>
-                                        <option value=<?php echo $e[0] . findSelectedOptSE($e[0]) ?>><?php echo $e[0] ?></option>
+                                        <option value=<?php echo $e[0] . ' ' . findSelectedOptSE($e[0]) ?>><?php echo $e[0] ?></option>
                                     <?php } ?>
                                 </select>
                             <?php }

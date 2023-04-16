@@ -38,7 +38,6 @@ $regex = "/.+@.+\..+/";
 $nonEmail = $wrongEP = $equalPass = $reentErr = 0;
 $bools = array($nonEmail, $wrongEP, $equalPass, $reentErr);
 $errmessages = array("Email does not exist", "Email and/or password are not correct", "New password is the same as current password", 'New passwords don\'t match');
-$salt = "7Zikzs1jt9";
 if (preg_match($regex, $email) != 1) {
     $bools[0] = 1;
     $_SESSION['red']['email'] = 'set';
@@ -46,7 +45,7 @@ if (preg_match($regex, $email) != 1) {
 }
 
 $dao = new Dao();
-
+$salt = "7Zikzs1jt9";
 if ($dao->checkPassword($email, hash("sha256", $password . $salt)) != 1) {
     $_SESSION['red']['email'] = 'set';
     $_SESSION['red']['password'] = 'set';

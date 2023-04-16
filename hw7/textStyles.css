@@ -69,6 +69,8 @@ form .error {
   text-align:right;
   position:relative;
   float:right;
+  top:0px;
+  right:0px;
 }
 
 .close:hover {

@@ -20,6 +20,7 @@ $studentSent = 1;
 if ($type == 'tutor') {
     $studentSent = 0;
     $sEmail = $_POST['sEmail'];
+    $_SESSION['emailS'] = $sEmail;
     if ($sEmail != '') {
         unset($_SESSION['red']['sEmail']);
     }

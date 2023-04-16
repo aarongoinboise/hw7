@@ -45,11 +45,22 @@ $type == 'tutor' ? $h1 .= '/Delete Messages' : $h1 .= ' Messages';
             ?>
             <p>
               <label for="sEmail">Write the student email this message is going to:</label>
-              <input class="<?php echo classSet('sEmail') ?>" type="text" name="sEmail"
-                value="<?php echo seshSet('sEmail') ?>" placeholder="ex: email@provider.net"><?php echo dot('sEmail') ?>
+              <select name="sEmail" id="sEmail">
+                <option value="" hidden>Student Email</option>
+                <?php
+                $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
+                foreach ($emails as $e) { ?>
+                  <option value=<?php echo $e[0] . ' ' . findSelectedOptSE($e[0]) ?>><?php echo $e[0] ?></option>
+                <?php } ?>
+              </select>
+              <?php echo dot('sEmail') 
+              ?>
             </p>
             <?php
           }
+          if (isset($_SESSION['emailS'])) {
+            unset($_SESSION['emailS']);
+        }
         }
         if (!$noStudentsT) {
           echo "<p>";

@@ -62,7 +62,7 @@ if (isset($_SESSION['mType'])) {
                                     foreach ($emails as $e) { ?>
                                         <option value=<?php echo $e[0] . ' ' . findSelectedOptSE($e[0]) ?>><?php echo $e[0] ?></option>
                                     <?php } ?>
-                                </select>
+                                </select><?php echo dot('email') ?>
                             <?php }
                             if (isset($_SESSION['emailS'])) {
                                 unset($_SESSION['emailS']);

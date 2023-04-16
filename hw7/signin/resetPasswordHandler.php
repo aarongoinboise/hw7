@@ -74,7 +74,8 @@ for ($i = 0; $i < 4; $i++) {
   }
 }
 
-if ($errM != '') {
+$sLen = strlen($errS);
+if (strlen($errS) > 0) {
   err($errS, $errS, 'resetPassword.php');
 }
 

@@ -46,9 +46,6 @@ if (isset($_SESSION['mType'])) {
                     </select>
                 </form>
                 <?php
-                if (isset($_SESSION['emailS'])) {
-                    unset($_SESSION['emailS']);
-                }
                 if (isset($_GET['select']) || isset($_SESSION['select'])) {
                     if (isset($_GET['select'])) {
                         $_SESSION['select'] = $_GET['select'];
@@ -66,7 +63,11 @@ if (isset($_SESSION['mType'])) {
                                         <option value=<?php echo $e[0] . findSelectedOptSE($e[0]) ?>><?php echo $e[0] ?></option>
                                     <?php } ?>
                                 </select>
-                            <?php } ?>
+                            <?php }
+                            if (isset($_SESSION['emailS'])) {
+                                unset($_SESSION['emailS']);
+                            }
+                            ?>
                         </p>
                         <?php $labels;
                         $placeholders;

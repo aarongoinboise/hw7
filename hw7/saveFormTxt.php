@@ -41,11 +41,7 @@ function findSelectedOptE($opt)
 function findSelectedOptSE($opt)
 {
     if (($_SESSION['emailS'] == $opt)) {
-        unset($_SESSION['emailS']);
         return 'selected';
-    }
-    if (isset($_SESSION['emailS'])) {
-        unset($_SESSION['emailS']);
     }
     return '';
 }

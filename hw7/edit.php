@@ -45,7 +45,11 @@ if (isset($_SESSION['mType'])) {
                         <option value="practice" <?php echo findSelectedOptE('practice') ?>>Practice</option>
                     </select>
                 </form>
-                <?php if (isset($_GET['select']) || isset($_SESSION['select'])) {
+                <?php
+                if (isset($_SESSION['emailS'])) {
+                    unset($_SESSION['emailS']);
+                }
+                if (isset($_GET['select']) || isset($_SESSION['select'])) {
                     if (isset($_GET['select'])) {
                         $_SESSION['select'] = $_GET['select'];
                     }
@@ -55,7 +59,7 @@ if (isset($_SESSION['mType'])) {
                             <?php if ($type == 'tutor') {
                                 ?> <label for="email">Select the student email:</label>
                                 <select name="email" id="email">
-                                <option value="" hidden>Student Email</option>
+                                    <option value="" hidden>Student Email</option>
                                     <?php
                                     $emails = $dao->getStudentEmails($dao->getTutorNumber($email));
                                     foreach ($emails as $e) { ?>

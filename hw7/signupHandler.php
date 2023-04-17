@@ -50,7 +50,7 @@ if ($password != $reenterPassword) {
   $bools[1] = 1;
   $_SESSION['red']['password'] = 'set';
   $_SESSION['red']['reenterPassword'] = 'set';
-  err("Passwords don't match", 'Passwords don\'t match', 'signup.php');
+  // err("Passwords don't match", 'Passwords don\'t match', 'signup.php');
 }
 
 $dao = new Dao();
@@ -63,7 +63,7 @@ if (is_numeric($tutor)) { // student account is trying to be created
   } else {
     $bools[2] = 1;
     $_SESSION['red']['tutor'] = 'set';
-    err("Nonexistant tutor number", 'Tutor number doesn\'t exist', 'signup.php');
+    // err("Nonexistant tutor number", 'Tutor number doesn\'t exist', 'signup.php');
   }
 } else {
   if ($tutor == 'tutor') {
@@ -71,14 +71,14 @@ if (is_numeric($tutor)) { // student account is trying to be created
   } else {
     $bools[3] = 1;
     $_SESSION['red']['tutor'] = 'set';
-    err("Non-num string: tutor not used", '"tutor" or a valid number needs to be in the last box', 'signup.php');
+    // err("Non-num string: tutor not used", '"tutor" or a valid number needs to be in the last box', 'signup.php');
   }
 }
 
 if ($dao->checkUser($email) == 1) { // send em back to signup, email already exists
   $bools[4] = 1;
   $_SESSION['red']['email'] = 'set';
-  err($email . " already exists as an email", 'Email already exists, please try another', 'signup.php');
+  // err($email . " already exists as an email", 'Email already exists, please try another', 'signup.php');
 }
 
 $errS = '';

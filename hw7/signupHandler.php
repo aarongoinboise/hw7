@@ -91,12 +91,12 @@ if(strlen($email) > 100 || strlen($hint) > 64) {
 }
 
 $errS = '';
-for ($i = 0; $i < 5; $i++) {
+for ($i = 0; $i < 6; $i++) {
   if ($bools[$i] == 1) {
     $errS .= $errmessages[$i] . nl2br("\n");
   }
 }
-$sLen = strlen($errS);
+
 if (strlen($errS) > 0) {
   err($errS, $errS, 'signup.php');
 }

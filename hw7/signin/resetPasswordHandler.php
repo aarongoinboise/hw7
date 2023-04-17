@@ -73,7 +73,7 @@ if (strlen($hint)> 64) {
 }
 
 $errS = '';
-for ($i = 0; $i < 4; $i++) {
+for ($i = 0; $i < 5; $i++) {
   if ($bools[$i] == 1) {
     $errS .= $errmessages[$i] . nl2br("\n");
   }

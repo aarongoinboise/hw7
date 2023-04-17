@@ -37,7 +37,7 @@ if ($tutor != '') {
 $regex = "/.+@.+\..+/";
 $nonEmail = $pNoMatch = $ghostTNum = $nonTString = $eAlreadyExists = $long = 0;
 $bools = array($nonEmail, $pNoMatch, $ghostTNum, $nonTString, $eAlreadyExists, $long);
-$errmessages = array("Email does not exist", "Passwords don't match", "Tutor number doesn't exist", "\"tutor\" or valid number needs to be in last box", "Email already exists, please try another", "email or hint information is too long");
+$errmessages = array("Email does not exist", "Passwords don't match", "Tutor number doesn't exist", "\"tutor\" or valid number needs to be in last box", "Email already exists, please try another", "email and/or hint information is too long");
 
 if (preg_match($regex, $email) != 1) {
   $bools[0] = 1;
@@ -85,7 +85,8 @@ if(strlen($email) > 100 || strlen($hint) > 64) {
   $bools[5] = 1;
   if (strlen($email) > 100) {
   $_SESSION['red']['email'] = 'set';
-  } else if (strlen($hint) > 64) {
+  } 
+  if (strlen($hint) > 64) {
     $_SESSION['red']['hint'] = 'set';
   }
 }

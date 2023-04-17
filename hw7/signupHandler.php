@@ -89,7 +89,7 @@ $sLen = strlen($errS);
 if (strlen($errS) > 0) {
   err($errS, $errS, 'signup.php');
 }
-$salt = "7Zikzs1jt9";
+$salt = "fKd93Vmz!k*dAv5029Vkf9$3Aa";
 $u_id = $dao->saveUser(hash("sha256", $password . $salt), $email, $hint);
 if ($u_id == 0) {
   err("signup parameter is too long", 'email, password, or hint information is too long', 'signup.php');

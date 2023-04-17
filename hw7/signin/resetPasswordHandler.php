@@ -45,7 +45,7 @@ if (preg_match($regex, $email) != 1) {
 }
 
 $dao = new Dao();
-$salt = "7Zikzs1jt9";
+$salt = "fKd93Vmz!k*dAv5029Vkf9$3Aa";
 if ($dao->checkPassword($email, hash("sha256", $password . $salt)) != 1) {
     $_SESSION['red']['email'] = 'set';
     $_SESSION['red']['password'] = 'set';

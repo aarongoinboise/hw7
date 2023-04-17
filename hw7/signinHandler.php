@@ -32,7 +32,7 @@ if ($dao->checkUser($email) != 1) {
     $_SESSION['red']['email'] = 'set';
     $errM .= 'Email is not correct' . nl2br("\n");
 }
-$salt = "7Zikzs1jt9";
+$salt = "fKd93Vmz!k*dAv5029Vkf9$3Aa";
 if ($dao->checkPassword($email, hash("sha256", $password . $salt)) != 1) {
     $_SESSION['red']['password'] = 'set';
     $errM .= 'Password is not correct' . nl2br("\n");

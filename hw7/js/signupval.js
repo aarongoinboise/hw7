@@ -20,10 +20,7 @@ $(function () {
         equalTo: "#password"
       },
       hint:"required",
-      tutor: {
-        required: true,
-        equalTo: isNaN("#tutor") ? "tutor" : tutorNRet
-      }
+      tutor:"required"
 
       },
 

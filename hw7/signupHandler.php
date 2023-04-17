@@ -55,6 +55,7 @@ if ($password != $reenterPassword) {
 
 $dao = new Dao();
 $isTutor;
+$tutorNRet;
 if (is_numeric($tutor)) { // student account is trying to be created
   $tutorNRet = $dao->checkTutorNumber($tutor);
   if ($tutorNRet == 1) {

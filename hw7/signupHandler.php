@@ -35,9 +35,9 @@ if ($tutor != '') {
 
 /* email regex */
 $regex = "/.+@.+\..+/";
-$nonEmail = $pNoMatch = $ghostTNum = $nonTString = $eAlreadyExists = 0;
-$bools = array($nonEmail, $pNoMatch, $ghostTNum, $nonTString, $eAlreadyExists);
-$errmessages = array("Email does not exist", "Passwords don't match", "Tutor number doesn't exist", "\"tutor\" or valid number needs to be in last box", "Email already exists, please try another");
+$nonEmail = $pNoMatch = $ghostTNum = $nonTString = $eAlreadyExists = $long = 0;
+$bools = array($nonEmail, $pNoMatch, $ghostTNum, $nonTString, $eAlreadyExists, $long);
+$errmessages = array("Email does not exist", "Passwords don't match", "Tutor number doesn't exist", "\"tutor\" or valid number needs to be in last box", "Email already exists, please try another", "email or hint information is too long");
 
 if (preg_match($regex, $email) != 1) {
   $bools[0] = 1;
@@ -81,6 +81,15 @@ if ($dao->checkUser($email) == 1) { // send em back to signup, email already exi
   // err($email . " already exists as an email", 'Email already exists, please try another', 'signup.php');
 }
 
+if(strlen($email) > 100 || strlen($hint) > 64) {
+  $bools[5] = 1;
+  if (strlen($email) > 100) {
+  $_SESSION['red']['email'] = 'set';
+  } else if (strlen($hint) > 64) {
+    $_SESSION['red']['hint'] = 'set';
+  }
+}
+
 $errS = '';
 for ($i = 0; $i < 5; $i++) {
   if ($bools[$i] == 1) {
@@ -94,7 +103,7 @@ if (strlen($errS) > 0) {
 $salt = "fKd93Vmz!k*dAv5029Vkf9$3Aa";
 $u_id = $dao->saveUser(hash("sha256", $password . $salt), $email, $hint);
 if ($u_id == 0) {
-  err("signup parameter is too long", 'email, password, or hint information is too long', 'signup.php');
+  err("signup parameter is too long", 'email or hint information is too long', 'signup.php');
 }
 
 /* When reaching this point, all values are legit, user is created */

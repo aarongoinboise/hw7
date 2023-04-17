@@ -119,8 +119,8 @@ if ($sessionOrPrac == "session") {
             }
         }
         $dao->updateSession($descQ, $date);
-    } else if ($dao->saveSession($email, $date, $descQ) != 2) {
-        err("editSession parameter is too long", 'email or description is too long', 'edit.php?select=' . $sessionOrPrac);
+    } else if ($dao->saveSession($email, $date, $descQ) != 2 || strlen($descQ) > 100) {
+        err("editSession parameter is too long", 'description is too long', 'edit.php?select=' . $sessionOrPrac);
     }
 
 
@@ -136,6 +136,21 @@ if ($sessionOrPrac == "session") {
             err("editPrac question is the same", 'Everything matches your current question/options', 'edit.php?select=' . $sessionOrPrac);
         }
         $pID = $dao->getPID($email);
+        if (strlen($descQ) > 100 || strlen($wrongAns1) > 100 || strlen($wrongAns2) > 100 || strlen($rightAns) > 100) {
+            if (strlen($descQ) > 100) {
+                $_SESSION['red']['descQ'] = 'set';
+            }
+            if (strlen($wrongAns1) > 100) {
+                $_SESSION['red']['wrongAns1'] = 'set';
+            }
+            if (strlen($wrongAns2) > 100) {
+                $_SESSION['red']['wrongAns2'] = 'set';
+            }
+            if (strlen($rightAns) > 100) {
+                $_SESSION['red']['rightAns'] = 'set';
+            }
+            err("prac params too long", 'One or more inputs are too long', 'edit.php?select=' . $sessionOrPrac);
+        }
         $dao->savePractice($email, $descQ, $wrongAns1, $wrongAns2, $rightAns);
         $dao->deletePractice($pID);
     } else {

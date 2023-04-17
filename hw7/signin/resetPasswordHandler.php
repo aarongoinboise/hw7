@@ -35,9 +35,9 @@ if ($email == '' || $password == '' || $newPassword == '' || $reenterNewPassword
 
 /* email regex */
 $regex = "/.+@.+\..+/";
-$nonEmail = $wrongEP = $equalPass = $reentErr = 0;
-$bools = array($nonEmail, $wrongEP, $equalPass, $reentErr);
-$errmessages = array("Email does not exist", "Email and/or password are not correct", "New password is the same as current password", 'New passwords don\'t match');
+$nonEmail = $wrongEP = $equalPass = $reentErr = $long = 0;
+$bools = array($nonEmail, $wrongEP, $equalPass, $reentErr, $long);
+$errmessages = array("Email does not exist", "Email and/or password are not correct", "New password is the same as current password", 'New passwords don\'t match', 'Hint is too long');
 if (preg_match($regex, $email) != 1) {
     $bools[0] = 1;
     $_SESSION['red']['email'] = 'set';
@@ -65,6 +65,11 @@ if ($newPassword != $reenterNewPassword) {
     $_SESSION['red']['reenterNewPassword'] = 'set';
     $bools[3] = 1;
     // err("New passwords don't match", 'New passwords don\'t match', 'resetPassword.php');
+}
+
+if (strlen($hint)> 64) {
+    $_SESSION['red']['hint'] = 'set';
+    $bools[4] = 1;
 }
 
 $errS = '';
